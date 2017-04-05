@@ -1,0 +1,18 @@
+// Importing all stylesheets
+/* notes:
+    - try to use BEM naming conventions http://getbem.com/
+    - prefix classes with "js_" to trigger js on an element
+    - don't style "js_" classes
+ */
+
+//reset is added at build step, not here
+
+@import "_helpers/variables.scss";
+@import "_helpers/fonts.scss";
+@import "_layout/header.scss";
+@import "_layout/main-nav.scss";
+@import "_layout/footer.scss"; 
+
+
+
+

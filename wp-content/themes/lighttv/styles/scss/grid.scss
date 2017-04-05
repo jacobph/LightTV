@@ -1,0 +1,1163 @@
+/* start the good stuff  */
+/*responsive breakpoints  are em based. This lets our layout change and flow in response to the user's 
+browser settings. If you really want or need pixels, the rough equivalents are below.
+Don't like these breakpoints? change them to suit your needs!
+ */
+// $bp-s: 30em;
+// $bp-m: 48em;
+// $bp-l: 62em;
+// $bp-xl: 75em;
+
+// declared here AND in grid.scss, since we run the sass compiler before we concat dg.scss & grid.scss'
+//if you need to change them, change them in both places.
+
+
+//breakpoint are 30px larger than the containers, to account for padding and stuff
+$bp-xs: 360px;//galaxy phones, iphones from gen 5 and back, lots of other smaller android devices
+$bp-s: 490px;
+$bp-m: 768px;
+$bp-l: 992px;
+$bp-xl: 1252px;
+
+$container-xs: 330px;//galaxy phones, iphones from gen 5 and back, lots of other smaller android devices
+$container-s: 460px;
+$container-m: 738px;
+$container-l: 962px;
+$container-xl: 1252px;
+
+
+/* gutter width for .gutter class */
+$gutter: 23px;
+
+/* used for .gu gutters, also you probably wanted it anyway */
+*{
+  box-sizing: border-box;
+}
+
+/* containers, like in every other css framework. Fixed width and fluid. */
+.container{
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: content-box;
+  max-width: 100%;
+  @media (min-width: $bp-s){
+    max-width: $container-s;
+  }
+  @media (min-width: $bp-m){
+    max-width: $container-m;
+  }
+  @media (min-width: $bp-l){
+    max-width: $container-l;
+    
+  }
+  @media (min-width: $bp-xl){
+    max-width: $container-xl;
+    padding:0px 0px;
+  }
+}
+
+.container-fluid {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  
+  > *{
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+
+  //helper classes for flex-direction and align-item
+  //all of these ge t applied to the .row element
+  
+  &.flex-column {
+    flex-direction: column;
+  }  
+
+  &.flex-row-reverse{
+    flex-direction: row-reverse;
+  }
+
+  &.flex-column-reverse{
+    flex-direction: column-reverse;
+  }
+  
+  &.flex-align-center{
+    align-items:center;
+  }
+  
+  &.flex-align-start{
+    align-items:flex-start;
+  }
+  
+  &.flex-align-end{
+    align-items:flex-end;
+  }
+
+  &.flex-justify-center{
+    justify-content:center;
+  }
+
+  &.flex-justify-end{
+    justify-content: flex-end;
+  }
+  
+  &.flex-nowrap{
+    flex-wrap:nowrap;
+  }
+  
+  &.flex-center{
+    align-items:center;
+    justify-content:center;
+  }
+}
+
+//column styles
+[class^="col-"]{
+  width:100%;
+  flex-grow:0;
+}
+
+  .col-xs-1 {
+    width: calc(100% / 12);
+  }
+
+  .col-xs-2 {
+    width: calc(100% / 6);
+  }
+
+  .col-xs-3 {
+    width: 25%;
+  }
+
+  .col-xs-4 {
+    width: calc(100% / 3) ;
+  }
+
+  .col-xs-5 {
+    width: calc(500% / 12);
+  }
+
+  .col-xs-6 {
+    width: 50%
+  }
+
+  .col-xs-7 {
+    width: calc(700% / 12);
+  }
+
+  .col-xs-8 {
+    width: calc(800% / 12);
+  }
+
+  .col-xs-9 {
+    width: calc(900% / 12);
+  }
+
+  .col-xs-10 {
+    width: calc(1000% / 12);
+  }
+
+  .col-xs-11 {
+    width: calc(1100%/ 12);
+  }
+
+  .col-xs-12 {
+    width:100%;
+  }
+
+@media(min-width:$bp-s) {
+  .col-sm-1 {
+    width: calc(100% / 12);
+  }
+
+  .col-sm-2 {
+    width: calc(100% / 6);
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+
+  .col-sm-4 {
+    width: calc(100% / 3) ;
+  }
+
+  .col-sm-5 {
+    width: calc(500% / 12);
+  }
+
+  .col-sm-6 {
+    width: 50%
+  }
+
+  .col-sm-7 {
+    width: calc(700% / 12);
+  }
+
+  .col-sm-8 {
+    width: calc(800% / 12);
+  }
+
+  .col-sm-9 {
+    width: calc(900% / 12);
+  }
+
+  .col-sm-10 {
+    width: calc(1000% / 12);
+  }
+
+  .col-sm-11 {
+    width: calc(1100%/ 12);
+  }
+
+  .col-sm-12 {
+    width:100%;
+  }
+}
+@media(min-width:$bp-m) {
+  .col-md-1 {
+    width: calc(100% / 12);
+  }
+
+  .col-md-2 {
+    width: calc(100% / 6);
+  }
+
+  .col-md-3 {
+    width: 25%;
+  }
+
+  .col-md-4 {
+    width: calc(100% / 3) ;
+  }
+
+  .col-md-5 {
+    width: calc(500% / 12);
+  }
+
+  .col-md-6 {
+    width: 50%
+  }
+
+  .col-md-7 {
+    width: calc(700% / 12);
+  }
+
+  .col-md-8 {
+    width: calc(800% / 12);
+  }
+
+  .col-md-9 {
+    width: calc(900% / 12);
+  }
+
+  .col-md-10 {
+    width: calc(1000% / 12);
+  }
+
+  .col-md-11 {
+    width: calc(1100%/ 12);
+  }
+
+  .col-md-12 {
+    width:100%;
+  }
+}
+@media(min-width:$bp-l) {
+  .col-lg-1 {
+    width: calc(100% / 12);
+  }
+
+  .col-lg-2 {
+    width: calc(100% / 6);
+  }
+
+  .col-lg-3 {
+    width: 25%;
+  }
+
+  .col-lg-4 {
+    width: calc(100% / 3) ;
+  }
+
+  .col-lg-5 {
+    width: calc(500% / 12);
+  }
+
+  .col-lg-6 {
+    width: 50%
+  }
+
+  .col-lg-7 {
+    width: calc(700% / 12);
+  }
+
+  .col-lg-8 {
+    width: calc(800% / 12);
+  }
+
+  .col-lg-9 {
+    width: calc(900% / 12);
+  }
+
+  .col-lg-10 {
+    width: calc(1000% / 12);
+  }
+
+  .col-lg-11 {
+    width: calc(1100%/ 12);
+  }
+
+  .col-lg-12 {
+    width:100%;
+  }
+}
+
+@media(min-width:$bp-xl) {
+  .col-xl-1 {
+    width: calc(100% / 12);
+  }
+
+  .col-xl-2 {
+    width: calc(100% / 6);
+  }
+
+  .col-xl-3 {
+    width: 25%;
+  }
+
+  .col-xl-4 {
+    width: calc(100% / 3) ;
+  }
+
+  .col-xl-5 {
+    width: calc(500% / 12);
+  }
+
+  .col-xl-6 {
+    width: 50%
+  }
+
+  .col-xl-7 {
+    width: calc(700% / 12);
+  }
+
+  .col-xl-8 {
+    width: calc(800% / 12);
+  }
+
+  .col-xl-9 {
+    width: calc(900% / 12);
+  }
+
+  .col-xl-10 {
+    width: calc(1000% / 12);
+  }
+
+  .col-xl-11 {
+    width: calc(1100%/ 12);
+  }
+
+  .col-xl-12 {
+    width:100%;
+  }
+}
+
+//offsets
+
+.col-xs-offset-1 {
+  margin-left: calc(100% / 12);
+}
+
+.col-xs-offset-2 {
+  margin-left: calc(100% / 6);
+}
+
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+
+.col-xs-offset-4 {
+  margin-left: calc(100% / 3) ;
+}
+
+.col-xs-offset-5 {
+  margin-left: calc(500% / 12);
+}
+
+.col-xs-offset-6 {
+  margin-left: 50%
+}
+
+.col-xs-offset-7 {
+  margin-left: calc(700% / 12);
+}
+
+.col-xs-offset-8 {
+  margin-left: calc(800% / 12);
+}
+
+.col-xs-offset-9 {
+  margin-left: calc(900% / 12);
+}
+
+.col-xs-offset-10 {
+  margin-left: calc(1000% / 12);
+}
+
+.col-xs-offset-11 {
+  margin-left: calc(1100%/ 12);
+}
+
+.col-xs-offset-12 {
+  margin-left:100%;
+}
+
+@media(min-width:$bp-s){
+  .col-sm-offset-1 {
+    margin-left: calc(100% / 12);
+  }
+
+  .col-sm-offset-2 {
+    margin-left: calc(100% / 6);
+  }
+
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+
+  .col-sm-offset-4 {
+    margin-left: calc(100% / 3) ;
+  }
+
+  .col-sm-offset-5 {
+    margin-left: calc(500% / 12);
+  }
+
+  .col-sm-offset-6 {
+    margin-left: 50%
+  }
+
+  .col-sm-offset-7 {
+    margin-left: calc(700% / 12);
+  }
+
+  .col-sm-offset-8 {
+    margin-left: calc(800% / 12);
+  }
+
+  .col-sm-offset-9 {
+    margin-left: calc(900% / 12);
+  }
+
+  .col-sm-offset-10 {
+    margin-left: calc(1000% / 12);
+  }
+
+  .col-sm-offset-11 {
+    margin-left: calc(1100%/ 12);
+  }
+
+  .col-sm-offset-12 {
+    margin-left:100%;
+  }
+}
+
+@media(min-width:$bp-m){
+  .col-md-offset-1 {
+    margin-left: calc(100% / 12);
+  }
+
+  .col-md-offset-2 {
+    margin-left: calc(100% / 6);
+  }
+
+  .col-md-offset-3 {
+    margin-left: 25%;
+  }
+
+  .col-md-offset-4 {
+    margin-left: calc(100% / 3) ;
+  }
+
+  .col-md-offset-5 {
+    margin-left: calc(500% / 12);
+  }
+
+  .col-md-offset-6 {
+    margin-left: 50%
+  }
+
+  .col-md-offset-7 {
+    margin-left: calc(700% / 12);
+  }
+
+  .col-md-offset-8 {
+    margin-left: calc(800% / 12);
+  }
+
+  .col-md-offset-9 {
+    margin-left: calc(900% / 12);
+  }
+
+  .col-md-offset-10 {
+    margin-left: calc(1000% / 12);
+  }
+
+  .col-md-offset-11 {
+    margin-left: calc(1100%/ 12);
+  }
+
+  .col-md-offset-12 {
+    margin-left:100%;
+  }
+}
+
+@media(min-width:$bp-l){
+  .col-lg-offset-1 {
+    margin-left: calc(100% / 12);
+  }
+
+  .col-lg-offset-2 {
+    margin-left: calc(100% / 6);
+  }
+
+  .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+
+  .col-lg-offset-4 {
+    margin-left: calc(100% / 3) ;
+  }
+
+  .col-lg-offset-5 {
+    margin-left: calc(500% / 12);
+  }
+
+  .col-lg-offset-6 {
+    margin-left: 50%
+  }
+
+  .col-lg-offset-7 {
+    margin-left: calc(700% / 12);
+  }
+
+  .col-lg-offset-8 {
+    margin-left: calc(800% / 12);
+  }
+
+  .col-lg-offset-9 {
+    margin-left: calc(900% / 12);
+  }
+
+  .col-lg-offset-10 {
+    margin-left: calc(1000% / 12);
+  }
+
+  .col-lg-offset-11 {
+    margin-left: calc(1100%/ 12);
+  }
+
+  .col-lg-offset-12 {
+    margin-left:100%;
+  }
+}
+
+@media(min-width:$bp-xl){
+  .col-xl-offset-1 {
+    margin-left: calc(100% / 12);
+  }
+
+  .col-xl-offset-2 {
+    margin-left: calc(100% / 6);
+  }
+
+  .col-xl-offset-3 {
+    margin-left: 25%;
+  }
+
+  .col-xl-offset-4 {
+    margin-left: calc(100% / 3) ;
+  }
+
+  .col-xl-offset-5 {
+    margin-left: calc(500% / 12);
+  }
+
+  .col-xl-offset-6 {
+    margin-left: 50%
+  }
+
+  .col-xl-offset-7 {
+    margin-left: calc(700% / 12);
+  }
+
+  .col-xl-offset-8 {
+    margin-left: calc(800% / 12);
+  }
+
+  .col-xl-offset-9 {
+    margin-left: calc(900% / 12);
+  }
+
+  .col-xl-offset-10 {
+    margin-left: calc(1000% / 12);
+  }
+
+  .col-xl-offset-11 {
+    margin-left: calc(1100%/ 12);
+  }
+
+  .col-xl-offset-12 {
+    margin-left:100%;
+  }
+}
+
+.gu{
+  [class^=col-]{
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+    padding-bottom: $gutter;
+  }
+  [class^=col-]:first-child{
+    padding-left:0;
+  }
+  [class^=col-]:last-child{
+    padding-right:0;
+  }
+}
+
+
+//define gutters here. Have to interpolate scss var to work in calc declaration
+//details if youre interested: https://github.com/sass/sass/issues/818
+.gutters {
+  margin-left: calc(#{$gutter});
+
+  [class^='col-']{
+    margin-bottom:calc(#{$gutter});
+  }
+
+  [class^='col-']:nth-child(n+1){
+    margin-right:calc(#{$gutter});
+  }
+
+  .col-xs-1,  {
+    width: calc( (100% / 12) - #{$gutter});
+  }
+
+  .col-xs-2 {
+    width: calc( (100% / 6) - #{$gutter});
+  }
+
+  .col-xs-3 {
+    width: calc( 25% - #{$gutter});
+  }
+
+  .col-xs-4 {
+    width: calc( (100% / 3) - #{$gutter});
+  }
+
+  .col-xs-5 {
+    width: calc( (500% / 12) - #{$gutter});
+  }
+
+  .col-xs-6 {
+    width: calc( 50% - #{$gutter});
+  }
+
+  .col-xs-7 {
+    width: calc( (700% / 12) - #{$gutter});
+  }
+
+  .col-xs-8 {
+    width: calc( (800% / 12) - #{$gutter});
+  }
+
+  .col-xs-9 {
+    width: calc( (900% / 12) - #{$gutter});
+  }
+
+  .col-xs-10 {
+    width: calc( (1000% / 12) - #{$gutter});
+  }
+
+  .col-xs-11 {
+    width: calc( (1100% / 12) - #{$gutter});
+  }
+
+  .col-xs-12 {
+    width: calc(100% - #{$gutter});
+  }
+
+  @media(min-width:$bp-s){
+    .col-sm-1,  {
+      width: calc( (100% / 12) - #{$gutter});
+    }
+
+    .col-sm-2 {
+      width: calc( (100% / 6) - #{$gutter});
+    }
+
+    .col-sm-3 {
+      width: calc( 25% - #{$gutter});
+    }
+
+    .col-sm-4 {
+      width: calc( (100% / 3) - #{$gutter});
+    }
+
+    .col-sm-5 {
+      width: calc( (500% / 12) - #{$gutter});
+    }
+
+    .col-sm-6 {
+      width: calc( 50% - #{$gutter});
+    }
+
+    .col-sm-7 {
+      width: calc( (700% / 12) - #{$gutter});
+    }
+
+    .col-sm-8 {
+      width: calc( (800% / 12) - #{$gutter});
+    }
+
+    .col-sm-9 {
+      width: calc( (900% / 12) - #{$gutter});
+    }
+
+    .col-sm-10 {
+      width: calc( (1000% / 12) - #{$gutter});
+    }
+
+    .col-sm-11 {
+      width: calc( (1100% / 12) - #{$gutter});
+    }
+
+    .col-sm-12 {
+      width: calc(100% - #{$gutter});
+    }
+  }
+
+  @media(min-width:$bp-m){
+    .col-md-1,  {
+      width: calc( (100% / 12) - #{$gutter});
+    }
+
+    .col-md-2 {
+      width: calc( (100% / 6) - #{$gutter});
+    }
+
+    .col-md-3 {
+      width: calc( 25% - #{$gutter});
+    }
+
+    .col-md-4 {
+      width: calc( (100% / 3) - #{$gutter});
+    }
+
+    .col-md-5 {
+      width: calc( (500% / 12) - #{$gutter});
+    }
+
+    .col-md-6 {
+      width: calc( 50% - #{$gutter});
+    }
+
+    .col-md-7 {
+      width: calc( (700% / 12) - #{$gutter});
+    }
+
+    .col-md-8 {
+      width: calc( (800% / 12) - #{$gutter});
+    }
+
+    .col-md-9 {
+      width: calc( (900% / 12) - #{$gutter});
+    }
+
+    .col-md-10 {
+      width: calc( (1000% / 12) - #{$gutter});
+    }
+
+    .col-md-11 {
+      width: calc( (1100% / 12) - #{$gutter});
+    }
+
+    .col-md-12 {
+      width: calc(100% - #{$gutter});
+    }
+  }
+  @media(min-width:$bp-l){
+    .col-lg-1,  {
+      width: calc( (100% / 12) - #{$gutter});
+    }
+
+    .col-lg-2 {
+      width: calc( (100% / 6) - #{$gutter});
+    }
+
+    .col-lg-3 {
+      width: calc( 25% - #{$gutter});
+    }
+
+    .col-lg-4 {
+      width: calc( (100% / 3) - #{$gutter});
+    }
+
+    .col-lg-5 {
+      width: calc( (500% / 12) - #{$gutter});
+    }
+
+    .col-lg-6 {
+      width: calc( 50% - #{$gutter});
+    }
+
+    .col-lg-7 {
+      width: calc( (700% / 12) - #{$gutter});
+    }
+
+    .col-lg-8 {
+      width: calc( (800% / 12) - #{$gutter});
+    }
+
+    .col-lg-9 {
+      width: calc( (900% / 12) - #{$gutter});
+    }
+
+    .col-lg-10 {
+      width: calc( (1000% / 12) - #{$gutter});
+    }
+
+    .col-lg-11 {
+      width: calc( (1100% / 12) - #{$gutter});
+    }
+
+    .col-lg-12 {
+      width: calc(100% - #{$gutter});
+    }
+  }
+  @media(min-width:$bp-xl){
+    .col-xl-1,  {
+      width: calc( (100% / 12) - #{$gutter});
+    }
+
+    .col-xl-2 {
+      width: calc( (100% / 6) - #{$gutter});
+    }
+
+    .col-xl-3 {
+      width: calc( 25% - #{$gutter});
+    }
+
+    .col-xl-4 {
+      width: calc( (100% / 3) - #{$gutter});
+    }
+
+    .col-xl-5 {
+      width: calc( (500% / 12) - #{$gutter});
+    }
+
+    .col-xl-6 {
+      width: calc( 50% - #{$gutter});
+    }
+
+    .col-xl-7 {
+      width: calc( (700% / 12) - #{$gutter});
+    }
+
+    .col-xl-8 {
+      width: calc( (800% / 12) - #{$gutter});
+    }
+
+    .col-xl-9 {
+      width: calc( (900% / 12) - #{$gutter});
+    }
+
+    .col-xl-10 {
+      width: calc( (1000% / 12) - #{$gutter});
+    }
+
+    .col-xl-11 {
+      width: calc( (1100% / 12) - #{$gutter});
+    }
+
+    .col-xl-12 {
+      width: calc(100% - #{$gutter});
+    }
+  }
+}
+
+//order classes.
+//need to rewrite like "col-sm-order-0" to be consistent with offset classes
+
+.col-order-xs-0{
+  order:0;
+}
+
+.col-order-xs-1 {
+  order:1;
+}
+
+.col-order-xs-2 {
+  order:2;
+}
+
+.col-order-xs-3 {
+  order:3;
+}
+
+.col-order-xs-4 {
+  order:4;
+}
+
+.col-order-xs-5 {
+  order:5;
+}
+
+.col-order-xs-6 {
+  order:6;
+}
+
+.col-order-xs-7 {
+  order:7;
+}
+
+.col-order-xs-8 {
+  order:8;
+}
+
+.col-order-xs-9 {
+  order:9;
+}
+
+.col-order-xs-10 {
+  order:10;
+}
+
+.col-order-xs-11 {
+  order:11;
+}
+
+.col-order-xs-12 {
+  order:12;
+}
+
+@media (min-width:$bp-s){
+  .col-order-x-0{
+    order:0;
+  }
+  .col-order-sm-1 {
+    order:1;
+  }
+
+  .col-order-sm-2 {
+    order:2;
+  }
+
+  .col-order-sm-3 {
+    order:3;
+  }
+
+  .col-order-sm-4 {
+    order:4;
+  }
+
+  .col-order-sm-5 {
+    order:5;
+  }
+
+  .col-order-sm-6 {
+    order:6;
+  }
+
+  .col-order-sm-7 {
+    order:7;
+  }
+
+  .col-order-sm-8 {
+    order:8;
+  }
+
+  .col-order-sm-9 {
+    order:9;
+  }
+
+  .col-order-sm-10 {
+    order:10;
+  }
+
+  .col-order-sm-11 {
+    order:11;
+  }
+
+  .col-order-sm-12 {
+    order:12;
+  }
+}
+
+@media (min-width:$bp-m){
+  .col-order-md-0{
+    order:0;
+  }
+  .col-order-md-1 {
+    order:1;
+  }
+
+  .col-order-md-2 {
+    order:2;
+  }
+
+  .col-order-md-3 {
+    order:3;
+  }
+
+  .col-order-md-4 {
+    order:4;
+  }
+
+  .col-order-md-5 {
+    order:5;
+  }
+
+  .col-order-md-6 {
+    order:6;
+  }
+
+  .col-order-md-7 {
+    order:7;
+  }
+
+  .col-order-md-8 {
+    order:8;
+  }
+
+  .col-order-md-9 {
+    order:9;
+  }
+
+  .col-order-md-10 {
+    order:10;
+  }
+
+  .col-order-md-11 {
+    order:11;
+  }
+
+  .col-order-md-12 {
+    order:12;
+  }
+}
+
+@media (min-width:$bp-l){
+  .col-order-lg-0{
+    order:0;
+  }
+  .col-order-lg-1 {
+    order:1;
+  }
+
+  .col-order-lg-2 {
+    order:2;
+  }
+
+  .col-order-lg-3 {
+    order:3;
+  }
+
+  .col-order-lg-4 {
+    order:4;
+  }
+
+  .col-order-lg-5 {
+    order:5;
+  }
+
+  .col-order-lg-6 {
+    order:6;
+  }
+
+  .col-order-lg-7 {
+    order:7;
+  }
+
+  .col-order-lg-8 {
+    order:8;
+  }
+
+  .col-order-lg-9 {
+    order:9;
+  }
+
+  .col-order-lg-10 {
+    order:10;
+  }
+
+  .col-order-lg-11 {
+    order:11;
+  }
+
+  .col-order-lg-12 {
+    order:12;
+  }
+}
+
+@media (min-width:$bp-xl){
+  .col-order-xl-0{
+    order:0;
+  }
+  .col-order-xl-1 {
+    order:1;
+  }
+
+  .col-order-xl-2 {
+    order:2;
+  }
+
+  .col-order-xl-3 {
+    order:3;
+  }
+
+  .col-order-xl-4 {
+    order:4;
+  }
+
+  .col-order-xl-5 {
+    order:5;
+  }
+
+  .col-order-xl-6 {
+    order:6;
+  }
+
+  .col-order-xl-7 {
+    order:7;
+  }
+
+  .col-order-xl-8 {
+    order:8;
+  }
+
+  .col-order-xl-9 {
+    order:9;
+  }
+
+  .col-order-xl-10 {
+    order:10;
+  }
+
+  .col-order-xl-11 {
+    order:11;
+  }
+
+  .col-order-xl-12 {
+    order:12;
+  }
+}
+

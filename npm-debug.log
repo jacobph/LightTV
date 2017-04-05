@@ -1,0 +1,28 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'init' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.1
+4 verbose config Skipping project config: /Users/jacob/.npmrc. (matches userconfig)
+5 silly package data undefined
+6 info init written successfully
+7 verbose stack Error: Cannot find module 'spdx'
+7 verbose stack     at Function.Module._resolveFilename (module.js:469:15)
+7 verbose stack     at Function.Module._load (module.js:417:25)
+7 verbose stack     at Module.require (module.js:497:17)
+7 verbose stack     at require (internal/module.js:20:19)
+7 verbose stack     at Object.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/init-package-json/node_modules/validate-npm-package-license/index.js:1:74)
+7 verbose stack     at Module._compile (module.js:570:32)
+7 verbose stack     at Object.Module._extensions..js (module.js:579:10)
+7 verbose stack     at Module.load (module.js:487:32)
+7 verbose stack     at tryModuleLoad (module.js:446:12)
+7 verbose stack     at Function.Module._load (module.js:438:3)
+8 verbose cwd /Users/jacob/Documents/lighttv
+9 error Darwin 13.4.0
+10 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "init"
+11 error node v6.10.1
+12 error npm  v3.10.10
+13 error code MODULE_NOT_FOUND
+14 error Cannot find module 'spdx'
+15 error If you need help, you may report this error at:
+15 error     <https://github.com/npm/npm/issues>
+16 verbose exit [ 1, true ]
