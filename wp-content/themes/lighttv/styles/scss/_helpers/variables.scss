@@ -3,7 +3,7 @@
 // breakpoints, declared here AND in grid.scss, since we run the sass compiler before we concat dg.scss & grid.scss'
 //if you need to change them, change them in both places.
 
-//breakpoint are 30px larger than the containers, to account for padding and stuff
+// breakpoint are 30px larger than the containers, to account for padding and stuff
 $bp-xs: 360px;//galaxy phones, iphones from gen 5 and back, lots of other smaller android devices
 $bp-s: 490px;
 $bp-m: 768px;
@@ -12,19 +12,44 @@ $bp-xl: 1252px;
 $bp-2xl: 1330px;
 
 
-//colors
+// colors
+$yellow: rgb(248, 214, 101); // #F8D665
+$yellow-light: rgb(255, 245, 171); // #fff5ab
+$cream: rgb(255, 250, 200); // #fffac8
+$orange: rgb(248, 148, 30); // #F8941E
+$grey: rgb(216, 217, 204); // #D8D9CC
+$blue-dark: rgb(11, 117, 140); // #0B758C
+$blue-light: rgb(85, 179, 194); // #55B3C2
+$black: rgb(4, 37, 38); // #042526
+$offwhite: rgb(245, 243, 218); // #F5F3DA
+$red: rgb(217, 71, 35); //#D94723
+
+// font-sizes
+$font-size-xl: 52pt;
+$font-size-l: 40pt;
+$font-size- : 32pt;
+$font-size- : 24pt;
+$font-size- : 21pt;
+$font-size- : 20pt;
+$font-size- : 18pt;
+$font-size-regular: 16pt;
+$font-size- : 14pt;
+$font-size- : 13pt;
+$font-size-xs: 12pt;
+
+// header and footer
+$font-size-nav: 16pt;
+$font-size-footer: 16pt;
 
 
-//font-sizes
+// font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 
-
-//font weights
-$weight-light: 300;
-$weight-normal: 400;
-$weight-bold: 700;
-$weight-black: 900;
-
-//line heights
+// line heights
 $line-height-low:0.9em;
 $line-height-1: 1.0em;
 $line-height-high:1.2em;
