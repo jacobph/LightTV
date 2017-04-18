@@ -1,0 +1,38 @@
+.site-title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  .site-title__link {
+    display: flex;
+    justify-content: center;
+    width:100%;
+
+    img {
+      display: block;
+    }
+  }
+}
+
+.site-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  #menu-header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-navigation__button {
+    display:block;
+    width:229px;
+    background: $yellow-light;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+  }
+}

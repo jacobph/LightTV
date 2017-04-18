@@ -11,7 +11,7 @@ var rename = require('gulp-rename');
 
 gulp.task('styles', function() {
 
-  gulp.src(['styles/scss/reset.scss', 'styles/scss/grid.scss', 'styles/scss/lighttv.scss'])
+  gulp.src(['styles/scss/normalize.scss', 'styles/scss/grid.scss', 'styles/scss/lighttv.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCSS({ compatibility: 'ie8' }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))

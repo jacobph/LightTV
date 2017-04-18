@@ -2,7 +2,6 @@
 @import url('styles/boots-bones.css');
 /*
 Theme Name: Light TV
-Theme URI: 
 Author: Jacob Harris
 Author URI: http://ahoy1.github.io
 Description: Theme for LightTV.com
@@ -12,7 +11,7 @@ Version: 1.0
 /* Reset
 -------------------------------------------------------------- */
 
-html,
+/*html,
 body,
 div,
 span,
@@ -802,4 +801,4 @@ html[xmlns] .clearfix {
       font-size: 1em;
       line-height: 1.5em;
     }
-  }
+  }*/

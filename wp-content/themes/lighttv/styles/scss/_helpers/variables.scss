@@ -8,43 +8,46 @@ $bp-xs: 360px;//galaxy phones, iphones from gen 5 and back, lots of other smalle
 $bp-s: 490px;
 $bp-m: 768px;
 $bp-l: 992px;
-$bp-xl: 1252px;
-$bp-2xl: 1330px;
+$bp-xl: 1200px;
 
 
 // colors
 $yellow: rgb(248, 214, 101); // #F8D665
 $yellow-light: rgb(255, 245, 171); // #fff5ab
 $cream: rgb(255, 250, 200); // #fffac8
-$orange: rgb(248, 148, 30); // #F8941E
-$grey: rgb(216, 217, 204); // #D8D9CC
-$blue-dark: rgb(11, 117, 140); // #0B758C
-$blue-light: rgb(85, 179, 194); // #55B3C2
-$black: rgb(4, 37, 38); // #042526
+$orange: rgb(248, 148, 30); // #F8941E, "Sunset"
+$white: rgb(255, 255, 255); // #FFFFFF
+$grey: #cfd1d2;
+
+$color-text: #231f20;
+$color-text-light: #919396;
+
+// not used in site, but pulled from styleguide anyway
 $offwhite: rgb(245, 243, 218); // #F5F3DA
+$orange-light: rbg(255, 190, 48); // "Marigold"
+$blue-dark: rgb(11, 117, 140); // #0B758C, "Summer Pool"
+$blue-light: rgb(85, 179, 194); // #55B3C2, "Peacock"
 $red: rgb(217, 71, 35); //#D94723
 
 // font-sizes
-$font-size-xl: 52pt;
-$font-size-l: 40pt;
-$font-size- : 32pt;
-$font-size- : 24pt;
-$font-size- : 21pt;
-$font-size- : 20pt;
-$font-size- : 18pt;
-$font-size-regular: 16pt;
-$font-size- : 14pt;
-$font-size- : 13pt;
-$font-size-xs: 12pt;
-
-// header and footer
-$font-size-nav: 16pt;
-$font-size-footer: 16pt;
+// since there are so many font sizes set and many of them are only used in 1 location, I'm not using 
+// most of these in the scss proper. Think of these as a reference instead
+$font-size-enormous: 52px;
+$font-size-huge: 40px;
+$font-size-3xl: 32px;
+$font-size-2xl: 24px;
+$font-size-xl-plus : 21px;
+$font-size-xl : 20px;
+$font-size-l: 18px;
+$font-size-m: 16px;
+$font-size-s: 14px;
+$font-size-xs: 13px;
+$font-size-2xs: 12px;
 
 
 // font weights
 $font-weight-light: 300;
-$font-weight-normal: 400;
+$font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;

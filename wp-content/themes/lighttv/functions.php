@@ -5,7 +5,7 @@
 	/*-----------------------------------------------------------------------------------*/
 
 // Define the version so we can easily replace it throughout the theme
-define( 'NAKED_VERSION', 1.0 );
+define( 'LIGHTTV_VERSION', 1.0 );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Set the maximum allowed width for any content in the theme
@@ -74,26 +74,26 @@ add_filter( 'clean_url', 'add_async_scripts', 11, 1 );
 
 
 //styles
-function dg_styles(){
+function lighttv_styles(){
 	// get the theme directory style.min.css and link to it in the header
-  wp_enqueue_style('style.min.css', get_stylesheet_directory_uri() . '/styles/min/dg.min.css');
+  wp_enqueue_style('lighttv.min.css', get_stylesheet_directory_uri() . '/styles/min/lighttv.min.css');
 }
-add_action( 'wp_enqueue_scripts', 'dg_styles' ); // Register this fxn and allow Wordpress to call it automatcally in the header
+add_action( 'wp_enqueue_scripts', 'lighttv_styles' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
 //scripts
-function naked_scripts()  { 
+function lighttv_scripts()  { 
 
 	// get the theme directory style.css and link to it in the header
-	wp_enqueue_style('style.css', get_stylesheet_directory_uri() . '/style.css');
+	// wp_enqueue_style('style.css', get_stylesheet_directory_uri() . '/style.css');
 	
 	// add fitvid
-	// wp_enqueue_script( 'naked-fitvid', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), NAKED_VERSION, true );
+	// wp_enqueue_script( 'naked-fitvid', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), LIGHTTV_VERSION, true );
 	
 	// add theme scripts
-	wp_enqueue_script( 'naked', get_template_directory_uri() . '/js/theme.min.js', array(), NAKED_VERSION, true );
+	wp_enqueue_script( 'light', get_template_directory_uri() . '/js/theme.min.js', array(), LIGHTTV_VERSION, true );
   
 }
-add_action( 'wp_enqueue_scripts', 'naked_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
+add_action( 'wp_enqueue_scripts', 'lighttv_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
 
 /*-----------------------------------------------------------------------------------*/
