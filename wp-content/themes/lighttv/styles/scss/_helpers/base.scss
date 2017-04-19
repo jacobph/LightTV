@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background: $yellow;
+}
+
 body {
   margin: 0;
   padding: 0;

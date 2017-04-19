@@ -8,15 +8,18 @@
 </main><!-- / end page container, begun in the header -->
 
 <footer class="site-footer">
-	<div class="site-info container">
-		
-		<p>Birthed <a href="http://bckmn.com/naked-wordpress" rel="theme">Naked</a> 
-			on <a href="http://wordpress.org" rel="generator">Wordpress</a> 
-			by <a href="http://bckmn.com" rel="designer">Joshua Beckman</a>
-		</p>
-		
-	</div><!-- .site-info -->
-</footer><!-- #colophon .site-footer -->
+	<div class="container footer-container">
+		<ul class="footer-links">
+			<li><a href="#">Terms &amp; Conditions</a></li>
+			<li><a href="#">Privacy</a></li>
+			<li><a href="">Advertising</a></li>
+			<li><a href="">Affiliate</a></li>
+			<li><a href="">Contact</a></li>
+		</ul>
+		<p class="copyright">Copyright © 2017 MGM All rights reserved</p>
+		<?php include "social-icons.php" ?>
+	</div>
+</footer><!-- .site-footer -->
 
 <?php wp_footer(); 
 // This fxn allows plugins to insert themselves/scripts/css/files (right here) into the footer of your website. 

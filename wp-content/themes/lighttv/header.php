@@ -8,7 +8,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
 	<?php bloginfo('name'); // show the blog name, from settings ?> | 
 	<?php is_front_page() ? bloginfo('description') : wp_title(''); // if we're on the home page, show the description, from the site's settings - otherwise, show the title of the post or page ?>
@@ -32,7 +32,6 @@
 // Removing this fxn call will disable all kinds of plugins and Wordpress default insertions. 
 // Move it if you like, but I would keep it around.
 ?>
-
 </head>
 
 <body 
@@ -45,7 +44,9 @@
 >
 
 <header class="site-header">
+	<div class="menu-button js_menu-open"></div>
 	<div class="container">
+		<?php include "social-icons.php" ?>
 		<h1 class="site-title">
 			<a class="site-title__link" href="<?php echo esc_url( home_url( '/' ) ); // Link to the home page ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>" rel="home">
 				<img src="/wp-content/themes/lighttv/img/LTV_LOGO_COLOR.PNG" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>">
