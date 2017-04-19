@@ -6,7 +6,36 @@
  */
 
 get_header(); // This fxn gets the header.php file and renders it ?>
-	<div id="primary" class="row-fluid">
+	<section class="section-highlights">
+		<div class="container">
+			<h1>this month</h1>
+		</div>
+		<div class="highlights">
+			<div class="highlights__left">
+				<div class="highlights__block highlight-block-1">
+					
+				</div>
+			</div>
+			<div class="highlights__right">
+				<div class="highlights__block highlight-block-2"></div>
+				<div class="highlights__block highlight-block-3"></div>
+				<div class="highlights__block highlight-block-4"></div>
+			</div>
+		</div>
+	</section><!-- .section-highlights -->
+
+	<section class="section-schedule">
+		<div class="container">
+			<h1>schedule</h1>
+		</div>
+	</section> <!-- .section-schedule -->
+
+	<section class="section-live">
+		<div class="container">
+			<h1>live</h1>
+		</div>
+	</section> <!-- .section-live -->
+	<div id="primary" >
 		<div id="content" role="main" class="span8 offset2">
 
 			<?php if ( have_posts() ) : 
@@ -19,7 +48,6 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 				?>
 
 					<article class="post">
-					
 						<h1 class="title">
 							<a href="<?php the_permalink(); // Get the link to this post ?>" title="<?php the_title(); ?>">
 								<?php the_title(); // Show the title of the posts as a link ?>

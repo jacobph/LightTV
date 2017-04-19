@@ -3,7 +3,8 @@
 }
 
 ::selection {
-  background: $yellow;
+  background: $blue-dark;
+  color: $white;
 }
 
 body {
@@ -27,6 +28,7 @@ b {
 section{
   h1 {
     font-size: 52px;
+    color: $color-text-h1;
     font-weight: $font-weight-bold;
     line-height: 1em;
     margin-top: 21px;
