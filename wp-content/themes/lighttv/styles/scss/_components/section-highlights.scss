@@ -5,11 +5,18 @@
   justify-content: space-between;
   align-items: stretch;
   height: 40vw;
-  max-height: 550px;
+  
+  @media (min-width: $bp-m) {
+    max-height: 550px;
+  }
 
   .highlights__left,
   .highlights__right {
-    width: 50%;
+    width: 100%;
+
+    @media (min-width: $bp-m) {
+      width: 50%;
+    }
   }
 
   .highlights__block {

@@ -10,6 +10,35 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		<div class="container">
 			<h1>this month</h1>
 		</div>
+		<?php
+			// $args = array (
+			//   'pagination' => true,
+			//   'posts_per_page' => 4,
+			//   'cat' => 3,
+			//   'ignore_stickie_posts' => true,
+			// );
+
+			// query_posts( $args );
+			?>
+		<?php 
+		$topPosts = get_posts(array(
+	    'pagination' => true,
+		  'posts_per_page' => 4,
+		  'cat' => 3,
+		  'ignore_stickie_posts' => true,
+    ));
+
+    for ($i=0; $i < count($topPosts) ; $i++) { 
+    	echo $i;
+    	echo $topPosts[$i]->ID;
+    	echo $topPosts[$i]->post_title;
+    	echo $topPosts[$i]->post_content;
+    	echo $topPosts[$i]->vimeo_url;
+    	echo get_the_post_thumbnail($topPosts[$i]->ID);
+    	echo '<br>';
+    	// echo $topPosts[$i]->ID;
+    }
+     ?>
 		<div class="highlights">
 			<div class="highlights__left">
 				<div class="highlights__block highlight-block-1">
@@ -35,9 +64,9 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			<h1>live</h1>
 		</div>
 	</section> <!-- .section-live -->
+
 	<div id="primary" >
 		<div id="content" role="main" class="span8 offset2">
-
 			<?php if ( have_posts() ) : 
 			// Do we have any posts in the databse that match our query?
 			// In the case of the home page, this will call for the most recent posts 

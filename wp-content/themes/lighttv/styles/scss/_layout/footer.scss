@@ -1,9 +1,13 @@
 .site-footer {
   background-color: $grey;
-  font-size: 12px;
+  font-size: 16px;
   padding: 25px 0;
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
+
+  @media (min-width: $bp-s) {
+    font-size: 12px;
+  }
 
   .social-icons {
     position: initial;
@@ -59,8 +63,13 @@
   padding: 0;
   list-style: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: $bp-s) {
+    flex-direction: row;
+  }
 
   @media (min-width: $bp-l) {
     justify-content: flex-start;
@@ -68,7 +77,13 @@
 
   li {
     padding: 0 10px;
-    border-right: 2px solid $color-text;
+    margin: 0 0 10px 0;
+
+    @media (min-width: $bp-s) {
+      max-resolution: 0 0 0 0;
+      border-right: 2px solid $color-text;
+    }
+
     a{
       font-weight: $font-weight-bold;
       color: $color-text;
