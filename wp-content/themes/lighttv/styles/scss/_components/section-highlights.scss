@@ -22,18 +22,77 @@
   .highlights__block {
     background: $yellow;
     border: 5px solid $white;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $black;
+    }
+
+    .highlights__block__image {
+      height: 70%;
+    }
+
+    .highlights__block__info {
+      height: 30%;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+
+      .highlights__block__info__icon {
+        width: 50px;
+        margin-right: 20px;
+      }
+
+      .highlights__block__info__summary__title {
+        font-size: 18px;
+        font-weight: $font-weight-semibold;
+      }
+      .highlights__block__info__summary__summary {
+        font-size: 13px;
+        font-weight: $font-weight-medium;
+      }
+    }
+
     &.highlight-block-1 {
       border-top: 0 none;
       // border-right
       border-bottom: 0 none;
       border-left: 0 none;
+
+      .highlights__block__image {
+        height: 80%;
+
+      }        
+
+      .highlights__block__info {
+        height: 20%;
+
+        .highlights__block__info__summary__title {
+          font-size: 24px;
+        }
+        .highlights__block__info__summary__summary {
+          font-size: 16px;
+        }
+      }
     }
 
     &.highlight-block-2 {
       border-top: 0 none;
       border-right: 0 none;
       // border-bottom
-      border-left: 0 none;      
+      border-left: 0 none; 
+
+      .highlights__block__info {
+
+        .highlights__block__info__summary__title {
+          font-size: 21px;
+        }
+        .highlights__block__info__summary__summary {
+          font-size: 14px;
+        }
+      }     
     }
 
     &.highlight-block-3 {

@@ -77,6 +77,10 @@ add_filter( 'clean_url', 'add_async_scripts', 11, 1 );
 function lighttv_styles(){
 	// get the theme directory style.min.css and link to it in the header
   wp_enqueue_style('lighttv.min.css', get_stylesheet_directory_uri() . '/styles/min/lighttv.min.css');
+  
+  // add mediabox styles as well
+  wp_enqueue_style('mediabox.min.css', get_template_directory_uri() . '/js/mediabox-1.1.2/dist/mediabox.min.css');
+
 }
 add_action( 'wp_enqueue_scripts', 'lighttv_styles' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
@@ -89,8 +93,11 @@ function lighttv_scripts()  {
 	// add fitvid
 	// wp_enqueue_script( 'naked-fitvid', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), LIGHTTV_VERSION, true );
 	
+  // add theme scripts
+  wp_enqueue_script( 'mediabox', get_template_directory_uri() . '/js/mediabox-1.1.2/dist/mediabox.min.js', array(), LIGHTTV_VERSION, true );
+
 	// add theme scripts
-	wp_enqueue_script( 'light', get_template_directory_uri() . '/js/theme.min.js', array(), LIGHTTV_VERSION, true );
+	wp_enqueue_script( 'light', get_template_directory_uri() . '/js/min/theme.min.js', array(), LIGHTTV_VERSION, true );
   
 }
 add_action( 'wp_enqueue_scripts', 'lighttv_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header

@@ -27,28 +27,83 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		  'cat' => 3,
 		  'ignore_stickie_posts' => true,
     ));
-
-    for ($i=0; $i < count($topPosts) ; $i++) { 
-    	echo $i;
-    	echo $topPosts[$i]->ID;
-    	echo $topPosts[$i]->post_title;
-    	echo $topPosts[$i]->post_content;
-    	echo $topPosts[$i]->vimeo_url;
-    	echo get_the_post_thumbnail($topPosts[$i]->ID);
-    	echo '<br>';
-    	// echo $topPosts[$i]->ID;
-    }
-     ?>
+    ?>
 		<div class="highlights">
 			<div class="highlights__left">
 				<div class="highlights__block highlight-block-1">
-					
+					<?php 
+			    	$title = $topPosts[0]->post_title;
+			    	$content = $topPosts[0]->post_content;
+			    	$videoURL = $topPosts[0]->vimeo_url;
+			    	$thumbURL = get_the_post_thumbnail_url( $topPosts[0]->ID, 'large' );
+					?>
+					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
+						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
+						<div class="highlights__block__info">
+							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<div class="highlights__block__info__summary">
+								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
+								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
+							</div>
+						</div>
+					</a>
 				</div>
 			</div>
 			<div class="highlights__right">
-				<div class="highlights__block highlight-block-2"></div>
-				<div class="highlights__block highlight-block-3"></div>
-				<div class="highlights__block highlight-block-4"></div>
+				<div class="highlights__block highlight-block-2">
+					<?php 
+			    	$title = $topPosts[1]->post_title;
+			    	$content = $topPosts[1]->post_content;
+			    	$videoURL = $topPosts[1]->vimeo_url;
+			    	$thumbURL = get_the_post_thumbnail_url( $topPosts[1]->ID, 'large' );
+					?>
+					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
+						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
+						<div class="highlights__block__info">
+							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<div class="highlights__block__info__summary">
+								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
+								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="highlights__block highlight-block-3">
+					<?php 
+			    	$title = $topPosts[2]->post_title;
+			    	$content = $topPosts[2]->post_content;
+			    	$videoURL = $topPosts[2]->vimeo_url;
+			    	$thumbURL = get_the_post_thumbnail_url( $topPosts[2]->ID, 'large' );
+					?>
+					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
+						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
+						<div class="highlights__block__info">
+							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<div class="highlights__block__info__summary">
+								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
+								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="highlights__block highlight-block-4">
+					<?php 
+			    	$title = $topPosts[3]->post_title;
+			    	$content = $topPosts[3]->post_content;
+			    	$videoURL = $topPosts[3]->vimeo_url;
+			    	$thumbURL = get_the_post_thumbnail_url( $topPosts[3]->ID, 'large' );
+					?>
+					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
+						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
+						<div class="highlights__block__info">
+							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<div class="highlights__block__info__summary">
+								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
+								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section><!-- .section-highlights -->
@@ -62,6 +117,9 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	<section class="section-live">
 		<div class="container">
 			<h1>live</h1>
+			<div class="intrinsic-container intrinsic-container-16x9">
+				<iframe class="" src="https://player.vimeo.com/video/212986034" frameborder="0" allowfullscreen></iframe>
+			</div>
 		</div>
 	</section> <!-- .section-live -->
 
