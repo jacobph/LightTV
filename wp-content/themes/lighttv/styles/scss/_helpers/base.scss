@@ -25,6 +25,14 @@ b {
   font-weight: $font-weight-bold;
 }
 
+.screen-reader-text { 
+ clip: rect(1px, 1px, 1px, 1px); 
+ height: 1px; 
+ width: 1px; 
+ overflow: hidden; 
+ position: absolute !important;
+}
+
 section{
   h1 {
     font-size: 52px;

@@ -30,6 +30,18 @@ $blue-dark: rgb(11, 117, 140); // #0B758C, "Summer Pool"
 $blue-light: rgb(85, 179, 194); // #55B3C2, "Peacock"
 $red: rgb(217, 71, 35); //#D94723
 
+// font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// line heights
+$line-height-low:0.9em;
+$line-height-1: 1.0em;
+$line-height-high:1.2em;
+
 // font-sizes
 // since there are so many font sizes set and many of them are only used in 1 location, I'm not using 
 // most of these in the scss proper. Think of these as a reference instead
@@ -44,16 +56,3 @@ $font-size-m: 16px;
 $font-size-s: 14px;
 $font-size-xs: 13px;
 $font-size-2xs: 12px;
-
-
-// font weights
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-
-// line heights
-$line-height-low:0.9em;
-$line-height-1: 1.0em;
-$line-height-high:1.2em;

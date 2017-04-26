@@ -1,13 +1,8 @@
 .site-footer {
   background-color: $grey;
-  font-size: 16px;
   padding: 25px 0;
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
-
-  @media (min-width: $bp-s) {
-    font-size: 12px;
-  }
 
   .social-icons {
     position: initial;
@@ -78,10 +73,12 @@
   li {
     padding: 0 10px;
     margin: 0 0 10px 0;
+    font-size: 16px;
 
     @media (min-width: $bp-s) {
       max-resolution: 0 0 0 0;
       border-right: 2px solid $color-text;
+      font-size: 12px;
     }
 
     a{
@@ -106,4 +103,9 @@
 
 .copyright {
   text-align: center;
+  font-size: 16px;
+
+  @media (min-width: $bp-s) {
+    font-size: 12px;
+  }
 }

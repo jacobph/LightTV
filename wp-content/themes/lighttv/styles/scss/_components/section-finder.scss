@@ -1,0 +1,73 @@
+.section-finder {
+  background-color: $orange;
+  border-top: 5px solid $white;
+  padding: 6px 0;
+  
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (min-width: $bp-xl) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+
+  h1 {
+    color: $cream;
+    font-size: 40px;
+    font-weight: $font-weight-bold;
+    width: 100%;
+
+    @media (min-width: $bp-xl) {
+      width: initial;
+    }
+
+    img {
+      height: 30px;
+    }
+  }
+
+  .zip-lookup {
+    display: flex;
+    align-items: flex-end;
+    width: 174px;
+
+    input {
+      border: 0 none;
+      font-size: 20px;
+      padding: 0 10px;
+      height: 36px;
+      width: 138px;
+    }
+
+    .zip-lookup__submit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $yellow;
+      width: 36px;
+      height: 36px;
+
+      img {
+        height: 80%;
+      }
+    }
+  }
+
+  .lookup-result {
+    font-size: 18px;
+    margin-top: 21px;
+    width: 100%;
+    font-weight: $font-weight-bold;
+    color: $white;
+
+    @media (min-width: $bp-s) {
+      width: initial;
+      margin-top: 0;
+      margin-left: 10px;
+    }
+  }
+}

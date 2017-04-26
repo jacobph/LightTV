@@ -123,7 +123,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		</div>
 	</section> <!-- .section-live -->
 
-	<div id="primary" >
+	<div id="primary" style="display: none">
 		<div id="content" role="main" class="span8 offset2">
 			<?php if ( have_posts() ) : 
 			// Do we have any posts in the databse that match our query?
