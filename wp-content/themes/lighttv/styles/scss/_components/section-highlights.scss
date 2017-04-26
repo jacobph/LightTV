@@ -31,14 +31,22 @@
     }
 
     .highlights__block__image {
-      height: 70%;
+      height: 60%;
+
+      @media (min-width: $bp-xl) {
+        height: 70%;
+      }
     }
 
     .highlights__block__info {
-      height: 30%;
+      height: 40%;
       padding: 0 20px;
       display: flex;
       align-items: center;
+
+      @media (min-width: $bp-xl) {
+        height: 30%;
+      }
 
       .highlights__block__info__icon {
         width: 50px;
