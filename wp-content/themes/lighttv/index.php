@@ -111,7 +111,62 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	<section class="section-schedule">
 		<div class="container">
 			<h1>schedule</h1>
-		</div>
+			<p class="current-days-episodes"><span class="current-day">Today</span>'s Episodes</p>
+			<div class="schedule-loading-wrapper js_schedule-loading-wrapper hidden">
+				<div class="schedule-controls">
+					<div class="schedule-controls__month"><span>mar</span></div>
+					<div class="schedule-controls__button schedule-controls__prev"></div>
+					<div class="schedule-controls__week js_schedule-controls__week">
+						<div class="schedule-controls__week__day today js_today">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+						<div class="schedule-controls__week__day">
+							<div class="day-name"></div>
+							<div class="day-num"></div>
+						</div>
+					</div> <!-- .schedule-controls__week -->
+					<div class="schedule-controls__button schedule-controls__next"></div>
+				</div> <!-- .schedule-controls -->
+				<div class="schedule">
+					<div class="schedule__day schedule__day-1 schedule__date-2">
+						<div class="program">
+							<div class="program__timeslot">
+								<div class="time">8:30am</div>
+							</div>
+							<div class="program__thumbnail">
+								
+							</div>
+							<div class="program__info">
+								<div class="title">Program Title</div>
+								<div class="episode">S2.E10 Episode title goes here</div>
+								<div class="description">Episode description goes here</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- .schedule-loading-wrapper -->
+		</div>	<!-- .container -->
 	</section> <!-- .section-schedule -->
 
 	<section class="section-live">
@@ -187,4 +242,90 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			<?php endif; // OK, I think that takes care of both scenarios (having posts or not having any posts) ?>
 		</div><!-- #content .site-content -->
 	</div><!-- #primary .content-area -->
+
+
+	<script>		
+/* GRACENOTE API STUFF */
+var apikey = "m5sb66gw46nh6cddagsumbtk";
+var baseUrl = "http://data.tmsapi.com/v1.1";
+var stationID = "81334"; //
+// var stationId = "10359"; //TX
+var lineupID = "USA-OTA11216";
+// var lineupID = "USA-TX42500-X"; // TX
+var showtimesUrl = baseUrl + "/stations/" + stationID + "/airings";
+var zipCode = "78701";
+var d = new Date();
+var isoStart = isoString(d, 0);
+// var isoEnd = isoString(d, 1);
+
+function pad(number) {
+  if (number < 10) {
+    return '0' + number;
+  }
+  return number;
+}
+// date is a js date object. use new Date() to get the current datetime
+// offset is days to offset. 0 for today, >0 for a future day (so 7 returns a week of programming data)
+function isoString(date, offset) {
+  return date.getUTCFullYear() +
+    '-' + pad(date.getUTCMonth() + 1) +
+    '-' + pad(date.getUTCDate() + offset) +
+    'T' + pad(date.getUTCHours() - 4) + // apparently the api needs local time? this gives GMT, but then we get results 4 hrs in the future
+    ':' + pad(date.getUTCMinutes()) +
+    // ':' + pad(date.getUTCSeconds()) +
+    // '.' + (date.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5) +
+    'Z';
+};
+
+function renderControls(date) {
+	const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+	let dayNum = date.getDay();
+	let dayName = date.toString().split(' ')[0]; // gets first 3 letters of day name
+	let dateNum = date.getDate();
+	let dayStart = week.indexOf(dayName.toLowerCase());
+
+	let newWeek = ``
+	for (var i = 0; i < 7; i++) {
+		if (dayStart + i > 6){
+			dayStart = -i;
+		}
+		console.log(dayStart, i, week[dayStart + i]);
+		newWeek += `<div class="schedule-controls__week__day date-${dateNum + i} js_date-${dateNum + i} day-${i} js_day-${i}">
+			<div class="day-name">${week[dayStart + i]}</div>
+			<div class="day-num">${dateNum + i}</div>
+		</div>`
+	}
+
+	document.querySelector('.js_schedule-controls__week').innerHTML = newWeek;
+	document.querySelector('.js_schedule-loading-wrapper').classList.remove('hidden');
+}
+
+function dataHandler(data){
+  console.log('dataHandler called');
+  //console.log(data);
+  data.forEach(function(result) {
+    console.log(result);
+  });
+  renderControls(new Date());
+}
+
+// using jquery because im laaaaaaazy
+jQuery(document).ready(function() {
+  console.log('jQuery doc ready');
+  // send off the query
+  jQuery.ajax({
+    url: showtimesUrl,
+    data: {
+      startDateTime: isoStart,
+      // endDateTime: isoEnd,
+      lineupId: lineupID,
+      jsonp: "dataHandler",
+      api_key: apikey
+    },
+    dataType: "jsonp",
+  });
+});
+</script>
+
+
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

@@ -1,3 +1,134 @@
 .section-schedule {
   padding: 21px 0 94px 0;
+  min-height: 70vh;
+}
+
+.current-days-episodes {
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  margin-bottom: 25px;
+}
+
+.schedule-loading-wrapper {
+  transition: opacity 0.25s ease;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.schedule-controls {
+  display: flex;
+  height: 70px;
+
+  .schedule-controls__month {
+    background-color: $orange;
+    color: $white;
+    font-size: 32px;
+    font-weight: $font-weight-semibold;
+    width: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .schedule-controls__button {
+    background-color: $yellow;
+    width: 47px;
+    background-image: url('../../img/White_CarrotArrow.svg');
+    background-size: 40%;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &:hover{
+      background-color: $orange;
+      cursor: pointer;
+    }
+
+    &.schedule-controls__prev {
+      transform: rotate(180deg);
+    }
+  }
+
+
+  .schedule-controls__week {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    color: $color-text-light;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    .schedule-controls__week__day {
+      border: 3px solid transparent;
+      flex-grow: 1;
+      // margin-right: 10px;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // &:last-child {
+      //   margin-right: 0;
+      // }
+
+      &:not(.active):hover {
+        border-color: $color-text-light;
+        cursor: pointer;
+      }
+
+      &.active {
+        color: $color-text;
+        border-color: $yellow;
+      }
+    }
+
+    .day-name {
+      font-size: 24px;
+    }
+
+    .day-num {
+      font-size: 14px;
+    }
+  }
+}
+
+.program {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: $font-weight-semibold;
+  padding: 17px 0;
+  height: 152px;
+  border-bottom: 1px solid $grey;
+
+  .program__timeslot,
+  .program__thumbnail {
+    width: 174px;
+    height: 100%;;
+  }
+
+  .program__timeslot {
+    display: flex;
+    align-items: center;
+  }
+
+  .program__thumbnail {
+    background-color: $grey;
+    margin: 0 10px;
+  }
+
+  .program__info {
+
+    .episode {
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+    }
+
+    .description {
+      font-size: 12px;
+      font-weight: $font-weight-medium;
+    }
+
+  }
 }

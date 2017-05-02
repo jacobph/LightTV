@@ -93,10 +93,13 @@ function lighttv_scripts()  {
 	// add fitvid
 	// wp_enqueue_script( 'naked-fitvid', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), LIGHTTV_VERSION, true );
 	
-  // add theme scripts
+  // add jquery script
+  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array(), LIGHTTV_VERSION, true );
+
+  // add mediabox script
   wp_enqueue_script( 'mediabox', get_template_directory_uri() . '/js/mediabox-1.1.2/dist/mediabox.min.js', array(), LIGHTTV_VERSION, true );
 
-	// add theme scripts
+	// add theme script
 	wp_enqueue_script( 'light', get_template_directory_uri() . '/js/min/theme.min.js', array(), LIGHTTV_VERSION, true );
   
 }
