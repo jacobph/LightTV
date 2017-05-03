@@ -13,6 +13,25 @@ let scheduleState = {
   jsonResponse: '',
 }
 
+// standard debounce function, use for scroll event listeners
+// usage
+// window.addEventListener('scroll', debounce(yourFuncHere));
+function debounce(func, wait = 20, immediate = true) {
+  var timeout;
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 function pad(number) {
   if (number < 10) {
     return '0' + number;
@@ -60,6 +79,17 @@ function renderControls(date) {
       updateScheduleState(day.dataset.day);
     })
   });
+
+  const wrapper = document.querySelector('.schedule-controls-wrapper');
+  window.addEventListener('scroll', debounce(fixedControls(wrapper, wrapper.offsetTop), 20, false));
+}
+
+function fixedControls(wrap, offsetTop){
+  if (document.body.scrollTop >= offsetTop) {
+    document.querySelector('.schedule-controls').classList.add('fixed');
+  } else {
+    document.querySelector('.schedule-controls').classList.remove('fixed');
+  }
 }
 
 function revealThumbnails(thumbs){
@@ -221,6 +251,7 @@ function scheduleInit(){
       dataType: "jsonp",
     });
   }
+
 }
 
 jQuery(document).ready(scheduleInit());

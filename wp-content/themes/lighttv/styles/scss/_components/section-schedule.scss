@@ -146,17 +146,17 @@
     margin: 0 28px 0 0;
     display: flex;
     justify-content: center;
-    height: 241px;
-    width: 174px;
+    height: 172.5px;
+    width: 115px;
     background: $yellow;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    img{
+    img {
       opacity: 0;
       transition: opacity 0.25s ease;
-      width: 100% ;
+      width: 100%;
       display: block;
    
       &.active {
