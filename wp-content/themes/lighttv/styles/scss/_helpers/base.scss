@@ -25,6 +25,11 @@ b {
   font-weight: $font-weight-bold;
 }
 
+img.img-responsive {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .screen-reader-text { 
  clip: rect(1px, 1px, 1px, 1px); 
  height: 1px; 
