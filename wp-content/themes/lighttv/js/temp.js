@@ -263,4 +263,10 @@ function scheduleInit(){
 
 }
 
-jQuery(document).ready(scheduleInit());
+jQuery(document).ready(function(){
+  scheduleInit();
+  document.querySelector('.js_button-find').addEventListener('click', function(){
+    this.classList.toggle('active');
+    document.querySelector('.js_header-channel-finder').classList.toggle('active');
+  });
+});

@@ -2,6 +2,9 @@
   padding-top:25px;
   padding-bottom: 20px;
   border-bottom: 5px solid $yellow;
+  background-color: $white;
+  position: relative;
+  z-index: 2;
 
   .container {
     @media (min-width: $bp-l) {
@@ -66,6 +69,39 @@
 
     img {
       display: block;
+    }
+  }
+}
+
+.header-channel-finder {
+  // transform: translateY(-100%);
+  margin-top: -99px;
+  transition: transform 0.25s ease;
+
+  .flex {
+
+    >* {
+      transition: transform 0.8s ease;
+    }
+
+    >*:nth-child(1){
+      transform: translateY(-100%);
+    }
+
+    >*:nth-child(2){
+      transform: translateY(-150%);
+    }
+
+    >*:nth-child(3){
+      transform: translateY(-200%);
+    }
+  }
+
+  &.active {
+    transform: translateY(100%);
+
+    .flex>* {
+      transform: translateY(0);
     }
   }
 }

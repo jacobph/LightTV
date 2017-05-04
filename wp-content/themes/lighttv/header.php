@@ -54,13 +54,15 @@
 		</h1><!-- .site-title -->
 	
 		<nav class="site-navigation">
-			<a class="site-navigation__button button-watch" href="#">watch <b>LIGHTtv</b> now</a>
+			<a class="site-navigation__button button-watch js_button-watch" href="#">watch <b>LIGHTtv</b> now</a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
-			<a class="site-navigation__button button-find" href="#">find <b>LIGHTtv</b> in your area</a>
+			<a class="site-navigation__button button-find js_button-find" href="#">find <b>LIGHTtv</b> in your area</a>
 
 		</nav><!-- .site-navigation  -->
 	</div>
-		
 </header><!-- #masthead .site-header -->
+<div class="header-channel-finder js_header-channel-finder">
+	<?php include 'finder.php'; ?>
+</div>
 
 <main class="main-fluid"><!-- start the page containter -->
