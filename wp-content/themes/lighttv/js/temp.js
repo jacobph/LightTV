@@ -76,8 +76,8 @@ function renderControls(date) {
   const controls = document.querySelectorAll('.js_schedule-controls__week__day');
   controls.forEach(function(day){
     day.addEventListener('click', function(){
-      document.getElementById('scheduleControlsWrapper').scrollIntoView();
-      updateScheduleState(day.dataset.day);
+      document.getElementById('section-schedule').scrollIntoView();
+      updateScheduleState(parseInt(day.dataset.day));
     })
   });
 
@@ -88,7 +88,7 @@ function renderControls(date) {
       prevDay = 7;
     }
     updateScheduleState(prevDay);
-    document.getElementById('scheduleControlsWrapper').scrollIntoView();
+    document.getElementById('section-schedule').scrollIntoView();
 
   });
 
@@ -99,7 +99,7 @@ function renderControls(date) {
       nextDay = 1;
     }
     updateScheduleState(nextDay);   
-    document.getElementById('scheduleControlsWrapper').scrollIntoView();
+    document.getElementById('section-schedule').scrollIntoView();
   })
 
   const scheduleControls = document.querySelector('.schedule-controls');
