@@ -1,6 +1,10 @@
 .section-finder {
   background-color: $orange;
-  padding: 6px 0;
+  padding: 6px 0 17px 0;
+
+  @media (min-width: $bp-l) {
+    padding-bottom: 6px;
+  }
   
   .flex {
     display: flex;
@@ -8,7 +12,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    @media (min-width: $bp-xl) {
+    @media (min-width: $bp-l) {
       flex-wrap: nowrap;
       justify-content: space-between;
     }
@@ -19,9 +23,11 @@
     font-size: 40px;
     font-weight: $font-weight-bold;
     width: 100%;
+    margin-bottom: 10px;
 
-    @media (min-width: $bp-xl) {
+    @media (min-width: $bp-l) {
       width: initial;
+      margin-bottom: 21px;
     }
 
     img {

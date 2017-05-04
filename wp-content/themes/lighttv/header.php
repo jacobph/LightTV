@@ -61,7 +61,7 @@
 		</nav><!-- .site-navigation  -->
 	</div>
 </header><!-- #masthead .site-header -->
-<div class="header-channel-finder js_header-channel-finder">
+<div class="header-channel-finder hidden js_header-channel-finder">
 	<?php include 'finder.php'; ?>
 </div>
 

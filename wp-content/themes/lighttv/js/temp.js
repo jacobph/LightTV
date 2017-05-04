@@ -76,12 +76,35 @@ function renderControls(date) {
   const controls = document.querySelectorAll('.js_schedule-controls__week__day');
   controls.forEach(function(day){
     day.addEventListener('click', function(){
+      document.getElementById('scheduleControlsWrapper').scrollIntoView();
       updateScheduleState(day.dataset.day);
     })
   });
 
+  const controlPrev = document.querySelector('.schedule-controls__prev');
+  controlPrev.addEventListener('click', function(){
+    let prevDay = scheduleState.dayActive - 1;
+    if (prevDay < 1) {
+      prevDay = 7;
+    }
+    updateScheduleState(prevDay);
+    document.getElementById('scheduleControlsWrapper').scrollIntoView();
+
+  });
+
+  const controlNext = document.querySelector('.schedule-controls__next');
+  controlNext.addEventListener('click', function(){
+    let nextDay = scheduleState.dayActive + 1;
+    if (nextDay > 7) {
+      nextDay = 1;
+    }
+    updateScheduleState(nextDay);   
+    document.getElementById('scheduleControlsWrapper').scrollIntoView();
+  })
+
   const scheduleControls = document.querySelector('.schedule-controls');
-  const wrapOffsetTop = document.querySelector('.schedule-controls-wrapper').offsetTop;
+  const wrap = document.querySelector('.schedule-controls-wrapper');
+  const wrapOffsetTop = wrap.offsetTop;
 
   function fixControls(){
     const scrollTop = document.body.scrollTop;
@@ -89,10 +112,13 @@ function renderControls(date) {
     console.log(`wrapOffsetTop ${wrapOffsetTop}`);
     if((document.querySelector('.section-live').offsetTop - 70) <= scrollTop) {
       scheduleControls.classList.remove('fixed');
+      scheduleControls.style = '';
     } else if (scrollTop >= wrapOffsetTop) {
       scheduleControls.classList.add('fixed');
+      scheduleControls.style = `width:${wrap.offsetWidth}px;`;
     } else {
       scheduleControls.classList.remove('fixed');
+      scheduleControls.style = '';
     }
   }
 
@@ -260,13 +286,29 @@ function scheduleInit(){
       dataType: "jsonp",
     });
   }
-
 }
 
-jQuery(document).ready(function(){
-  scheduleInit();
+function placeFinder(){
+  console.log('placeFinder');
+  // appropriate placement
+  var headerFinder = document.querySelector('.js_header-channel-finder');
+  headerFinder.style = `margin-bottom:-${headerFinder.offsetHeight}px`;
+  headerFinder.classList.remove('offpage');
+}
+
+function finderInit(){
+  placeFinder();
+  window.addEventListener('resize', placeFinder);
+  // window.onresize = placeFinder();
+
+  // event listener for the button
   document.querySelector('.js_button-find').addEventListener('click', function(){
     this.classList.toggle('active');
     document.querySelector('.js_header-channel-finder').classList.toggle('active');
   });
+}
+
+jQuery(document).ready(function(){
+  scheduleInit();
+  finderInit();  
 });
