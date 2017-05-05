@@ -44,7 +44,7 @@
 >
 
 <header class="site-header">
-	<div class="menu-button js_menu-open"></div>
+	<div class="menu-button menu-open js_menu-toggle"></div>
 	<div class="container">
 		<?php include "social-icons.php" ?>
 		<h1 class="site-title">
@@ -54,15 +54,30 @@
 		</h1><!-- .site-title -->
 	
 		<nav class="site-navigation">
-			<a class="site-navigation__button button-watch js_button-watch" href="#">watch <b>LIGHTtv</b> now</a>
+			<?php if (strpos($_SERVER['REQUEST_URI'], 'index.php') || ($_SERVER['REQUEST_URI'] === "")) {
+				$watchLink = '#section-live';
+			} else {
+				$watchLink = '/index.php#section-live';
+			}?>
+			<a class="site-navigation__button button-watch js_button-watch" href="<?php echo $watchLink; ?>">watch <b>LIGHTtv</b> now</a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
 			<a class="site-navigation__button button-find js_button-find" href="#">find <b>LIGHTtv</b> in your area</a>
-
 		</nav><!-- .site-navigation  -->
 	</div>
 </header><!-- #masthead .site-header -->
+
 <div class="header-channel-finder hidden js_header-channel-finder">
 	<?php include 'finder.php'; ?>
-</div>
+</div> <!-- .header-channel-finder -->
+
+<div class="mobile-menu js_mobile-menu">
+	<div class="menu-button menu-close js_menu-toggle"></div>
+	<nav class="mobile-nav">
+		<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
+	</nav>
+	<a class="site-navigation__button button-watch js_button-watch" href="/index.php#section-live">watch <b>LIGHTtv</b> now</a>
+	<?php include "finder.php" ?>
+	<?php include "social-icons.php" ?>
+</div><!-- .mobile-menu -->
 
 <main class="main-fluid"><!-- start the page containter -->

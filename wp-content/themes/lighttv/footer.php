@@ -10,7 +10,7 @@
 <footer class="site-footer">
 	<div class="container footer-container">
 		<ul class="footer-links">
-			<li><a href="#">Terms &amp; Conditions</a></li>
+			<li><a href="#">Terms&nbsp;&amp;&nbsp;Conditions</a></li>
 			<li><a href="#">Privacy</a></li>
 			<li><a href="">Advertising</a></li>
 			<li><a href="">Affiliate</a></li>

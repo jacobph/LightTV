@@ -1,10 +1,11 @@
 .site-navigation {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
   @media (min-width: $bp-m) {
+    display: flex;
     flex-direction: row;
   }
 
@@ -64,70 +65,70 @@
       }
     }
   }
+}
 
-  .site-navigation__button {
-    display:block;
-    width:229px;
-    background: linear-gradient(to bottom, $cream 0%, $cream 50%, $yellow-light 51%, $yellow-light 100%);
-    color: $color-text;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    text-align: center;
-    position: relative;
+.site-navigation__button {
+  display:block;
+  width:229px;
+  background: linear-gradient(to bottom, $cream 0%, $cream 50%, $yellow-light 51%, $yellow-light 100%);
+  color: $color-text;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+  position: relative;
 
-    &:hover {
-     background: $yellow-light;
+  &:hover {
+   background: $yellow-light;
+  }
+
+  &.button-watch {
+    margin-bottom: 25px;
+
+    @media (min-width: $bp-m) {
+      margin-bottom: 0;
+    }
+  }
+
+  &.button-watch:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('../../img/Orange_PlayButton_Header.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(0.8);
+
+    @media (min-width: $bp-m) {
+      transform: scale(1);
+    }
+  }
+
+  &.button-find:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -13px;
+    left: -17px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../../img/wifi.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(0.8);
+
+    @media (min-width: $bp-m) {
+      transform: scale(1);
     }
 
-    &.button-watch {
-      margin-bottom: 25px;
-
-      @media (min-width: $bp-m) {
-        margin-bottom: 0;
-      }
-    }
-
-    &.button-watch:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -8px;
-      left: -10px;
+    @media (min-width: $bp-l) {
+      top: -20px;
+      left: -25px;
       width: 40px;
       height: 40px;
-      background-image: url('../../img/Orange_PlayButton_Header.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      transform: scale(0.8);
-
-      @media (min-width: $bp-m) {
-        transform: scale(1);
-      }
-    }
-
-    &.button-find:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -13px;
-      left: -17px;
-      width: 30px;
-      height: 30px;
-      background-image: url('../../img/wifi.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      transform: scale(0.8);
-
-      @media (min-width: $bp-m) {
-        transform: scale(1);
-      }
-
-      @media (min-width: $bp-l) {
-        top: -20px;
-        left: -25px;
-        width: 40px;
-        height: 40px;
-      }
     }
   }
 }

@@ -42,15 +42,20 @@
     color: $white;
     font-size: 32px;
     font-weight: $font-weight-semibold;
-    width: 127px;
+    width: 115px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: $bp-s) {
+      width: 127px;
+    }
   }
 
   .schedule-controls__button {
     background-color: $yellow;
     width: 47px;
+    height: 100%;
     background-image: url('../../img/White_CarrotArrow.svg');
     background-size: 40%;
     background-position: center center;
@@ -72,8 +77,11 @@
     flex: 1;
     justify-content: space-between;
     color: $color-text-light;
-    margin-left: 10px;
-    margin-right: 10px;
+    
+    @media (min-width: $bp-m) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
     .schedule-controls__week__day {
       border: 3px solid transparent;
@@ -84,9 +92,12 @@
       flex-direction: column;
       justify-content: center;
 
-      // &:last-child {
-      //   margin-right: 0;
-      // }
+      &:not(.active) {
+        display: none;
+        @media (min-width: $bp-m) { 
+          display: flex;
+        }
+      }
 
       &:not(.active):hover {
         border-color: $color-text-light;

@@ -1,12 +1,12 @@
 .highlights {
   border-top: 5px solid $yellow;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  height: 40vw;
-  
-  @media (min-width: $bp-m) {
+
+  @media (min-width: $bp-l) { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 40vw;
     max-height: 550px;
   }
 
@@ -14,20 +14,32 @@
   .highlights__right {
     width: 100%;
 
-    @media (min-width: $bp-m) {
+    @media (min-width: $bp-l) {
       width: 50%;
     }
   }
 
   .highlights__block {
     background: $yellow;
-    border: 5px solid $white;
+    border-bottom: 5px solid $white;
+
+    @media (min-width: $bp-s){
+      border: 5px solid $white;
+    }
 
     a {
       display: block;
       width: 100%;
       height: 100%;
       color: $black;
+
+      &:hover {
+        svg path,
+        svg polygon {
+          opacity: 1;
+          fill: $blue-dark;
+        }
+      }
     }
 
     .highlights__block__image {
@@ -38,6 +50,15 @@
       }
     }
 
+    svg {
+      margin-right: 20px;
+
+      path,
+      polygon {
+        opacity: 0.8;
+        transition: all 0.125s ease
+      }
+    }
     .highlights__block__info {
       height: 40%;
       padding: 0 20px;
@@ -65,24 +86,31 @@
 
     &.highlight-block-1 {
       border-top: 0 none;
-      // border-right
-      border-bottom: 0 none;
+      border-right: 0 none;
+      // border-bottom: 0 none;
       border-left: 0 none;
 
-      .highlights__block__image {
-        height: 80%;
+      @media (min-width: $bp-l) {
 
-      }        
+        .highlights__block__image {
+          height: 80%;
+        }        
 
-      .highlights__block__info {
-        height: 20%;
+        .highlights__block__info {
+          height: 20%;
 
-        .highlights__block__info__summary__title {
-          font-size: 24px;
+          .highlights__block__info__summary__title {
+            font-size: 24px;
+          }
+          .highlights__block__info__summary__summary {
+            font-size: 16px;
+          }
         }
-        .highlights__block__info__summary__summary {
-          font-size: 16px;
-        }
+      }
+
+      @media (min-width: $bp-l) {
+        border-bottom: 0 none;
+        border-right: 5px solid $white;
       }
     }
 
@@ -92,36 +120,65 @@
       // border-bottom
       border-left: 0 none; 
 
-      .highlights__block__info {
+      .highlights__block__image {
 
-        .highlights__block__info__summary__title {
-          font-size: 21px;
+        // @media (min-width: $bp-m){
+        //   height: 80%;
+        // }
+
+        @media (min-width: $bp-m) {
+          height: 60%;
         }
-        .highlights__block__info__summary__summary {
-          font-size: 14px;
+      } 
+
+    
+      .highlights__block__info {
+        @media (min-width: $bp-s){
+          height: 40%;
+
+          .highlights__block__info__summary__title {
+            font-size: 21px;
+          }
+          .highlights__block__info__summary__summary {
+            font-size: 14px;
+          }
+        }
+        @media (min-width: $bp-m) {
+          height: 40%;
         }
       }     
     }
 
     &.highlight-block-3 {
       border-top: 0 none;
-      //border-right
-      border-bottom: 0 none;
+      // border-right
+      // border-bottom: 0 none;
       border-left: 0 none;
+
+      @media (min-width: $bp-m) { 
+        border-bottom: 0 none;
+      }
     }
 
     &.highlight-block-4 {
       border-top: 0 none;
       border-right: 0 none;
-      border-bottom: 0 none;
+      // border-bottom: 0 none;
       border-left: 0 none;
+
+      @media (min-width: $bp-m) { 
+        border-bottom: 0 none;
+      }
     }
   }
 
   .highlights__left {
     .highlights__block {
       width: 100%;
-      height: 100%;
+      height: 300px;
+      @media (min-width: $bp-l) {
+        height: 100%;        
+      }
     }
   }
 
@@ -130,13 +187,23 @@
     flex-wrap: wrap;
     .highlight-block-2 {
       width: 100%;
-      height: 50%;
+      height: 300px;
+      @media (min-width: $bp-l) {
+        height: 50%;        
+      }
     }
 
     .highlight-block-3,
     .highlight-block-4 {
-      width: 50%;
-      height: 50%;
+      height: 300px;
+
+      @media (min-width: $bp-s) {
+        width: 50%;
+      }
+      
+      @media (min-width: $bp-l) {
+        height: 50%;        
+      }
     }
   }
 }

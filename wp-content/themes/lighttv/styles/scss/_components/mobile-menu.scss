@@ -1,0 +1,45 @@
+.mobile-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: $yellow;
+  height: 100vh;
+  padding: 20px 10px;
+  width: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .site-navigation__button {
+    margin-bottom: 20px;
+
+    @media (min-width: $bp-m) {
+      margin-left: 5px;
+    }
+  }
+
+  .social-icons {
+    position: absolute;
+    bottom: 5px;
+  }
+}
+
+.mobile-nav ul {
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+
+  li {
+    a {
+      display: block;
+      color: $color-text;
+      font-weight: $font-weight-semibold;
+      font-size: 22px;
+      margin: 0 0 10px 0;
+    }
+  }
+}

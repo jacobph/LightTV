@@ -1,10 +1,13 @@
 .site-header{
   padding-top:25px;
-  padding-bottom: 20px;
   border-bottom: 5px solid $yellow;
   background-color: $white;
   position: relative;
   z-index: 2;
+
+  @media (min-width: $bp-m) {
+    padding-bottom: 20px;
+  }
 
   .container {
     @media (min-width: $bp-l) {
@@ -12,26 +15,10 @@
     }
   }
 
-  .menu-button {
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 40px;
-    width: 40px;
-    background-image: url('../../img/hamburger-menu.svg');
-    background-size:contain;
-    background-repeat: no-repeat;
-
-    @media (min-width: $bp-l) {
-      display: none;
-    }
-  }
-
   .social-icons {
     display: none;
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 15px;
 
     @media (min-width: $bp-m) {
@@ -54,6 +41,30 @@
         }
       }
     }
+  }
+}
+
+.menu-button {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-size:contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.menu-open {
+    background-image: url('../../img/hamburger-menu.svg');
+    position: absolute;
+    top: 20px;
+    left: 10px;
+
+    @media (min-width: $bp-l) {
+      display: none;
+    }
+  }
+
+  &.menu-close {
+    background-image: url('../../img/close-menu.svg');
   }
 }
 

@@ -40,7 +40,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
 						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
 						<div class="highlights__block__info">
-							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<?php include "play-button.php" ?>
 							<div class="highlights__block__info__summary">
 								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
 								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
@@ -60,7 +60,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
 						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
 						<div class="highlights__block__info">
-							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<?php include "play-button.php" ?>
 							<div class="highlights__block__info__summary">
 								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
 								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
@@ -78,7 +78,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
 						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
 						<div class="highlights__block__info">
-							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<?php include "play-button.php" ?>
 							<div class="highlights__block__info__summary">
 								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
 								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
@@ -96,7 +96,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					<a href="<?php echo $videoURL; ?>" class="mediabox" title="<?php echo $title ?>">
 						<div class="highlights__block__image" style="background-image:url(<?php echo $thumbURL; ?>)"></div>
 						<div class="highlights__block__info">
-							<img src="/wp-content/themes/lighttv/img/White_PlayButton.svg" alt="" class="highlights__block__info__icon">
+							<?php include "play-button.php" ?>
 							<div class="highlights__block__info__summary">
 								<div class="highlights__block__info__summary__title"><?php echo $title; ?></div>
 								<div class="highlights__block__info__summary__summary"><?php echo $content; ?></div>
@@ -141,10 +141,20 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					</div>
 				</div>
 			</div> <!-- .schedule-loading-wrapper -->
+			<div class="cs-loader js_cs-loader">
+			  <div class="cs-loader-inner">
+			    <label>	●</label>
+			    <label>	●</label>
+			    <label>	●</label>
+			    <label>	●</label>
+			    <label>	●</label>
+			    <label>	●</label>
+			  </div>
+			</div>
 		</div>	<!-- .container -->
 	</section> <!-- .section-schedule -->
 
-	<section class="section-live" id="section-life"> 
+	<section class="section-live" id="section-live"> 
 		<div class="container">
 			<h1>live</h1>
 			<div class="intrinsic-container intrinsic-container-16x9">

@@ -100,16 +100,21 @@ function renderControls(date) {
     }
     updateScheduleState(nextDay);   
     document.getElementById('section-schedule').scrollIntoView();
-  })
+  });
+
+
+  // need to hide this here, because having it in the DOM fucks up the measurements for fixControls
+  document.querySelector('.js_cs-loader').remove();
+
 
   const scheduleControls = document.querySelector('.schedule-controls');
   const wrap = document.querySelector('.schedule-controls-wrapper');
-  const wrapOffsetTop = wrap.offsetTop;
-
+  
   function fixControls(){
     const scrollTop = document.body.scrollTop;
-    console.log(`scrollTop ${scrollTop}`);
-    console.log(`wrapOffsetTop ${wrapOffsetTop}`);
+    const wrapOffsetTop = wrap.offsetTop;
+    // console.log(`scrollTop ${scrollTop}`);
+    // console.log(`wrapOffsetTop ${wrapOffsetTop}`);
     if((document.querySelector('.section-live').offsetTop - 70) <= scrollTop) {
       scheduleControls.classList.remove('fixed');
       scheduleControls.style = '';
@@ -137,7 +142,7 @@ function revealThumbnails(thumbs){
       if (i < thumbs.length) {
         revealNextThumb()
       }
-    }, 500)
+    }, 600)
   }
   revealNextThumb();
 }
@@ -221,7 +226,7 @@ function dataHandler(data){
     }
 
     const todayDate = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-    console.log(todayDate);
+    // console.log(todayDate);
 
     if (result.program.releaseDate === todayDate) {
       programming += `<div class="new"<span>New</span></div>`;
@@ -245,10 +250,18 @@ function dataHandler(data){
 
 function saveJSON(){
   sessionStorage.setItem('scheduleJSON', scheduleState.jsonResponse);
+  sessionStorage.setItem('dateStored', d.getDate());
 }
 
 function getJSON(){
-  return sessionStorage.getItem('scheduleJSON');
+  if (parseInt(sessionStorage.getItem('dateStored')) === d.getDate()) {
+    // if the data is from today, use the stored json
+    return sessionStorage.getItem('scheduleJSON');
+  } else {
+    // if the data is a day or more old, delete it and make a new call
+    sessionStorage.clear();
+    return false;
+  }
 }
 
 //newDay is required (pass scheduleState.dayActive to keep same), jsonResponse is optional
@@ -289,7 +302,7 @@ function scheduleInit(){
 }
 
 function placeFinder(){
-  console.log('placeFinder');
+  // console.log('placeFinder');
   // appropriate placement
   var headerFinder = document.querySelector('.js_header-channel-finder');
   headerFinder.style = `margin-bottom:-${headerFinder.offsetHeight}px`;
@@ -308,7 +321,21 @@ function finderInit(){
   });
 }
 
+function toggleMobileMenu(){
+  document.querySelector('.js_mobile-menu').classList.toggle('active');
+  document.body.classList.toggle('mobile-menu-active');
+}
+
+function mobileMenuInit(){
+  document.querySelectorAll('.js_menu-toggle').forEach(function(button){
+    button.addEventListener('click', function(){
+      toggleMobileMenu();
+    });
+  });
+}
+
 jQuery(document).ready(function(){
+  mobileMenuInit();
   scheduleInit();
   finderInit();  
 });

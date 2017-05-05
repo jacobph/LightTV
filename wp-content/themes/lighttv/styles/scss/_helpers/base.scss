@@ -15,6 +15,10 @@ body {
   font-weight: $font-weight-regular;
   color: $color-text;
   background-color: $white;
+
+  &.mobile-menu-active{
+    overflow: hidden;
+  }
 }
 
 a {
