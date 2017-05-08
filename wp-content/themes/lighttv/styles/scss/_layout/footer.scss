@@ -10,14 +10,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 0px;
-    right: 15px;
-    margin-top: 12px;
 
     @media (min-width: $bp-l) {
       justify-content: flex-start;
-      position: absolute;
-      margin-top: 0;
     }
     
     .social-icons__icon {

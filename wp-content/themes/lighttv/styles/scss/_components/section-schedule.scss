@@ -26,11 +26,16 @@
 .schedule-controls {
   display: flex;
   height: 70px;
+  transition: all 0.125s ease;
 
   &.fixed {
     position: fixed;
-    top: 0;
+    top: 70px;
     background: white;
+
+    @media (min-width: $bp-m){
+      top: 172px;
+    }
 
     .schedule-controls__week {
       // box-shadow: inset 0px -3px 0px #f8d665;

@@ -1,7 +1,8 @@
 /* GRACENOTE API STUFF */
 var apikey = "m5sb66gw46nh6cddagsumbtk";
 var baseUrl = "http://data.tmsapi.com/v1.1";
-var stationID = "81334";
+// var stationID = "81334";
+var stationID = "30763";
 var lineupID = "USA-OTA11216";
 var showtimesUrl = baseUrl + "/stations/" + stationID + "/airings";
 var zipCode = "78701";
@@ -115,10 +116,10 @@ function renderControls(date) {
     const wrapOffsetTop = wrap.offsetTop;
     // console.log(`scrollTop ${scrollTop}`);
     // console.log(`wrapOffsetTop ${wrapOffsetTop}`);
-    if((document.querySelector('.section-live').offsetTop - 70) <= scrollTop) {
+    if((document.querySelector('.section-live').offsetTop - 240) <= scrollTop) {
       scheduleControls.classList.remove('fixed');
       scheduleControls.style = '';
-    } else if (scrollTop >= wrapOffsetTop) {
+    } else if (scrollTop + 60 >= wrapOffsetTop) {
       scheduleControls.classList.add('fixed');
       scheduleControls.style = `width:${wrap.offsetWidth}px;`;
     } else {

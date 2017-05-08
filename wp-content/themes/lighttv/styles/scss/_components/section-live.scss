@@ -3,9 +3,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 400px;
-  padding-top: 34px;
+  padding-top: 65px;
   padding-bottom: 68px;
   border-bottom: 5px solid $white;
+
+  @media(min-width) {
+    padding-top: 34px;
+  }
 
   h1 {
     margin-top: 0;

@@ -111,7 +111,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	<section class="section-schedule" id="section-schedule">
 		<div class="container">
 			<h1>schedule</h1>
-			<p class="current-days-episodes"><span class="current-day">Today</span>'s Episodes</p>
+			<p class="current-days-episodes"><span class="current-day">This Week</span>'s Episodes</p>
 			<div class="schedule-loading-wrapper js_schedule-loading-wrapper hidden">
 				<div class="schedule-controls-wrapper" id="scheduleControlsWrapper">
 					<div class="schedule-controls">

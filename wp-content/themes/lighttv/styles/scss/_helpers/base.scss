@@ -9,12 +9,16 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 65px 0 0 0; // padding-top to offset space needed for fixed header
   font-size: 16px;
   font-family: 'Poppins', Helvetica, Arial, sans-serif;
   font-weight: $font-weight-regular;
   color: $color-text;
   background-color: $white;
+
+  @media (min-width: $bp-m) {
+    padding: 162px 0 0 0;
+  }
 
   &.mobile-menu-active{
     overflow: hidden;
