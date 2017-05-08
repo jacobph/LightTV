@@ -163,6 +163,4 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		</div>
 	</section> <!-- .section-live -->
 
-	<script src="/wp-content/themes/lighttv/js/temp.js" type="text/javascript"></script>
-
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>
