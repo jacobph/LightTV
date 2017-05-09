@@ -14,20 +14,10 @@
   }
 
   .menu-header-menu-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);
-    background: $orange;
-    z-index: 10;
-    height: 100%;
-    
-    &.mobile-menu-active {
-      transform: translateX(0);
-      transition: transform 0.2s ease;
-    }
+    display: none;
 
     @media (min-width: $bp-l) {
+      display: block;
       position: relative;
       top: initial;
       right: initial;
@@ -76,6 +66,7 @@
   padding-bottom: 3px;
   text-align: center;
   position: relative;
+  cursor: pointer;
 
   &:hover {
    background: $yellow-light;

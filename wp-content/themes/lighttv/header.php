@@ -61,7 +61,7 @@
 			}?>
 			<a class="site-navigation__button button-watch js_button-watch" href="<?php echo $watchLink; ?>">watch <b>LIGHTtv</b> now</a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
-			<a class="site-navigation__button button-find js_button-find" href="#">find <b>LIGHTtv</b> in your area</a>
+			<a class="site-navigation__button button-find js_button-find">find <b>LIGHTtv</b> in your area</a>
 		</nav><!-- .site-navigation  -->
 	</div>
 </header><!-- #masthead .site-header -->
