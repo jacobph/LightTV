@@ -1,0 +1,12 @@
+.page {
+  main {
+    min-height: calc(100vh - 465px); // god this site is riddled with magic numbers. 
+  }
+  .the-content {
+    font-size: 38px;
+    font-weight: $font-weight-light;
+    line-height: 1.5;
+    color: $color-text;
+    // padding-top:66px;
+  }
+}

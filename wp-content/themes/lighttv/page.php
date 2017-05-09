@@ -5,8 +5,7 @@
  */
 
 get_header(); // This fxn gets the header.php file and renders it ?>
-	<div id="primary" class="row-fluid">
-		<div id="content" role="main" class="span8 offset2">
+	<div id="primary" class="container">
 
 			<?php if ( have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
@@ -16,9 +15,9 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 				// If we have a page to show, start a loop that will display it
 				?>
 
-					<article class="post">
+					<article class="page <?php the_title(); ?>">
 					
-						<h1 class="title"><?php the_title(); // Display the title of the page ?></h1>
+						<h1 class="title" style="display:none;"><?php the_title(); // Display the title of the page ?></h1>
 						
 						<div class="the-content">
 							<?php the_content(); 
@@ -36,11 +35,11 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 				
 				<article class="post error">
-					<h1 class="404">Nothing posted yet</h1>
+					<h1 class="404">Oops, something went wrong.</h1>
+					<p>There doesn't seem to be anything here.</p>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
 
-		</div><!-- #content .site-content -->
-	</div><!-- #primary .content-area -->
+	</div><!-- #primary .container -->
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

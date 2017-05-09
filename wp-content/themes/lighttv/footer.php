@@ -4,20 +4,22 @@
 	/* rendering the page and display the footer area/content
 	/*-----------------------------------------------------------------------------------*/
 ?>
-<?php include 'finder.php'; ?>
 </main><!-- / end page container, begun in the header -->
 
-<footer class="site-footer">
-	<div class="container footer-container">
-		<ul class="footer-links">
-			<li><a href="#">Terms&nbsp;&amp;&nbsp;Conditions</a></li>
-			<li><a href="#">Privacy</a></li>
-			<li><a href="">Advertising</a></li>
-			<li><a href="">Affiliate</a></li>
-			<li><a href="">Contact</a></li>
-		</ul>
-		<p class="copyright">Copyright © 2017 MGM All rights reserved</p>
-		<?php include "social-icons.php" ?>
+<footer>
+	<?php include 'finder.php'; ?>
+	<div class="site-footer">
+		<div class="container footer-container">
+			<ul class="footer-links">
+				<li><a href="#">Terms&nbsp;&amp;&nbsp;Conditions</a></li>
+				<li><a href="#">Privacy</a></li>
+				<li><a href="">Advertising</a></li>
+				<li><a href="">Affiliate</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			<p class="copyright">Copyright © 2017 MGM All rights reserved</p>
+			<?php include "social-icons.php" ?>
+		</div>
 	</div>
 </footer><!-- .site-footer -->
 
