@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
 /* GRACENOTE API STUFF */
 var apikey = "m5sb66gw46nh6cddagsumbtk";
 var baseUrl = "http://data.tmsapi.com/v1.1";
-// var stationID = "81334";
-var stationID = "30763";
+var stationID = "81334";
+// var stationID = "30763";
 var lineupID = "USA-OTA11216";
 var showtimesUrl = baseUrl + "/stations/" + stationID + "/airings";
 var zipCode = "78701";
@@ -17,7 +17,7 @@ var d = new Date();
 var isoStart = isoString(d, 0);
 var isoEnd = isoString(d, 6);
 let scheduleState = {
-  dayActive: 01,
+  dayActive: 1,
   jsonResponse: '',
 }
 
@@ -121,12 +121,13 @@ function renderControls(date) {
   function fixControls(){
     const scrollTop = document.body.scrollTop;
     const wrapOffsetTop = wrap.offsetTop;
+    console.log(document.querySelector('.js_site-header').offsetHeight);
     // console.log(`scrollTop ${scrollTop}`);
     // console.log(`wrapOffsetTop ${wrapOffsetTop}`);
     if((document.querySelector('.section-live').offsetTop - 240) <= scrollTop) {
       scheduleControls.classList.remove('fixed');
       scheduleControls.style = '';
-    } else if (scrollTop + 60 >= wrapOffsetTop) {
+    } else if (scrollTop + document.querySelector('.js_site-header').offsetHeight >= wrapOffsetTop) {
       scheduleControls.classList.add('fixed');
       scheduleControls.style = `width:${wrap.offsetWidth}px;`;
     } else {
@@ -206,14 +207,16 @@ function dataHandler(data){
     const startMinute = result.startTime.substring(colon + 1, z);
     const image = 'http://developer.tmsimg.com/assets/' + result.program.preferredImage.uri + '?api_key=' + apikey; 
     programming += `<div class="program">
-      
       <div class="program__thumbnail">
         <img class="img-responsive" src="" data-src="${image}" alt="${result.program.title}">
       </div>
       <div class="program__info">
-        <div class="time">${startHour}:${startMinute}${period}</div>
-        <div class="title">${result.program.title}</div>
-        <div class="episode">`;
+        <div class="program__info__left">
+          <div class="time">${startHour}:${startMinute}${period}</div>
+        </div>
+        <div class="program__info__right">
+          <div class="title">${result.program.title}</div>
+          <div class="episode">`;
 
     if (result.program.seasonNum) {
       programming += `S${result.program.seasonNum}`;
@@ -234,7 +237,6 @@ function dataHandler(data){
     }
 
     const todayDate = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-    // console.log(todayDate);
 
     if (result.program.releaseDate === todayDate) {
       programming += `<div class="new"<span>New</span></div>`;
@@ -242,7 +244,7 @@ function dataHandler(data){
 
     // S${result.program.seasonNum}.E${result.program.episodeNum} ${result.program.episodeTitle}</div>
         // <div class="description">${result.program.shortDescription}</div>
-    programming +=` </div></div>`;
+    programming +=` </div></div></div>`;
   });
 
   programming += `</div>`;
@@ -289,23 +291,25 @@ function updateScheduleView(scheduleState){
 }
 
 function scheduleInit(){
-  var data = getJSON();
-  //this way we don't do multiple time-consuming api calls per session
-  if (data) {
-    dataHandler(JSON.parse(data));
-  } else {
-    // using jquery because im laaaaaaazy
-    jQuery.ajax({
-      url: showtimesUrl,
-      data: {
-        startDateTime: isoStart,
-        endDateTime: isoEnd,
-        lineupId: lineupID,
-        jsonp: "dataHandler",
-        api_key: apikey
-      },
-      dataType: "jsonp",
-    });
+  if (document.querySelector('#section-schedule')) {
+    var data = getJSON();
+    //this way we don't do multiple time-consuming api calls per session
+    if (data) {
+      dataHandler(JSON.parse(data));
+    } else {
+      // using jquery because im laaaaaaazy
+      jQuery.ajax({
+        url: showtimesUrl,
+        data: {
+          startDateTime: isoStart,
+          endDateTime: isoEnd,
+          lineupId: lineupID,
+          jsonp: "dataHandler",
+          api_key: apikey
+        },
+        dataType: "jsonp",
+      });
+    }
   }
 }
 

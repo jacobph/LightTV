@@ -135,7 +135,7 @@
 
 .program {
   display: flex;
-  align-items: center;
+  // align-items: center;
   font-size: 24px;
   font-weight: $font-weight-semibold;
   padding: 17px 0;
@@ -152,17 +152,14 @@
     height: 100%;
   }
 
-  .program__timeslot {
-    display: flex;
-    align-items: center;
-  }
 
   .program__thumbnail {
-    margin: 0 28px 0 0;
+    // margin: 0 28px 0 0;
     display: flex;
     justify-content: center;
-    height: 172.5px;
-    width: 115px;
+    // height: 172.5px;
+    // width: 115px;
+    width: 174px;
     background: $yellow;
     display: flex;
     justify-content: center;
@@ -182,6 +179,11 @@
 
   .program__info {
     max-width: calc(100% - 202px);
+    display: flex;
+
+    .program__info__left {
+      margin: 0 48px;
+    }
 
     .title {
       margin-bottom: 10px;

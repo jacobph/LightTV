@@ -1,12 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var minifyCSS = require('gulp-minify-css');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const minifyCSS = require('gulp-minify-css');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
+const babel = require('gulp-babel');
 
 
 gulp.task('styles', function() {
@@ -21,6 +22,9 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   gulp.src('js/theme.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(rename('theme.min.js'))
     .pipe(gulp.dest('js/min/'))

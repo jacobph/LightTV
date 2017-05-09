@@ -43,7 +43,7 @@
 	?>
 >
 
-<header class="site-header">
+<header class="site-header js_site-header">
 	<div class="menu-button menu-open js_menu-toggle"></div>
 	<div class="container">
 		<?php include "social-icons.php" ?>
