@@ -44,12 +44,12 @@
 >
 
 <header class="site-header js_site-header">
-	<div class="menu-button menu-open js_menu-toggle"></div>
+	<div class="menu-button menu-open js_menu-toggle js_menu-open"></div>
 	<div class="container">
 		<?php include "social-icons.php" ?>
 		<h1 class="site-title">
 			<a class="site-title__link" href="<?php echo esc_url( home_url( '/' ) ); // Link to the home page ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>" rel="home">
-				<img src="/wp-content/themes/lighttv/img/LTV_LOGO_COLOR.PNG" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>">
+				<img src="<?php echo site_url(); ?>/wp-content/themes/lighttv/img/LTV_LOGO_COLOR.png" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>">
 			</a>
 		</h1><!-- .site-title -->
 	
@@ -71,7 +71,7 @@
 </div> <!-- .header-channel-finder -->
 
 <div class="mobile-menu js_mobile-menu">
-	<div class="menu-button menu-close js_menu-toggle"></div>
+	<div class="menu-button menu-close js_menu-toggle js_menu-close"></div>
 	<nav class="mobile-nav">
 		<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
 	</nav>

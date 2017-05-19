@@ -1,6 +1,6 @@
 <div class="social-icons">
   <a href="https://www.facebook.com/LightTVNetworks/" class="social-icons__icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 21.18" width="32px" height="32px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 21.18" width="22px" height="22px">
       <title>Facebook Icon</title>
       <g id="Layer_2" data-name="Layer 2">
         <g id="Masonry_Grid" data-name="Masonry Grid" >
@@ -11,7 +11,7 @@
     <!-- <img src="/wp-content/themes/lighttv/img/Facebook_Icon.svg" alt="LightTV on Facebook"> -->
   </a>
   <a href="https://twitter.com/lighttv" class="social-icons__icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.12 16.35" width="32px" height="32px">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.12 16.35" width="24px" height="24px">
     <title>Twitter Icon</title>
     <g id="Layer_2" data-name="Layer 2">
       <g id="Masonry_Grid" data-name="Masonry Grid">
@@ -21,7 +21,7 @@
   </svg>
   <!-- <img src="/wp-content/themes/lighttv/img/Twitter_Icon.svg" alt="LightTV on Twitter"></a> -->
   <a href="" class="social-icons__icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.19 14.77" width="32px" height="32px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.19 14.77" width="24px" height="24px">
       <title>Youtube Icon</title>
       <g id="Layer_2" data-name="Layer 2">
         <g id="Masonry_Grid" data-name="Masonry Grid">

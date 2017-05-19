@@ -24,6 +24,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		$topPosts = get_posts(array(
 	    'pagination' => true,
 		  'posts_per_page' => 4,
+		  // 'cat' => 2,
 		  'cat' => 3,
 		  'ignore_stickie_posts' => true,
     ));

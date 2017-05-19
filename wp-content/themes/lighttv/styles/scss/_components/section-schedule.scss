@@ -30,11 +30,13 @@
 
   &.fixed {
     position: fixed;
-    top: 70px;
-    background: white;
+    top: 60px;
+    height: 80px;
+    border-top: 10px solid $white;
+    background: $white;
 
     @media (min-width: $bp-m){
-      top: 172px;
+      top: 162px;
     }
 
     .schedule-controls__week {

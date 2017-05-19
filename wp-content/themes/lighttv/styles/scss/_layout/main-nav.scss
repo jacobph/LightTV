@@ -98,28 +98,28 @@
     }
   }
 
-  &.button-find:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -13px;
-    left: -17px;
-    width: 30px;
-    height: 30px;
-    background-image: url('../../img/wifi.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: scale(0.8);
+  // &.button-find:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: -13px;
+  //   left: -17px;
+  //   width: 30px;
+  //   height: 30px;
+  //   background-image: url('../../img/wifi.svg');
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  //   transform: scale(0.8);
 
-    @media (min-width: $bp-m) {
-      transform: scale(1);
-    }
+  //   @media (min-width: $bp-m) {
+  //     transform: scale(1);
+  //   }
 
-    @media (min-width: $bp-l) {
-      top: -20px;
-      left: -25px;
-      width: 40px;
-      height: 40px;
-    }
-  }
+  //   @media (min-width: $bp-l) {
+  //     top: -20px;
+  //     left: -25px;
+  //     width: 40px;
+  //     height: 40px;
+  //   }
+  // }
 }

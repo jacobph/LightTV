@@ -52,9 +52,14 @@ img.img-responsive {
   left: -5000px;
 }
 
+.hidden {
+  display: none;
+}
+
 section{
   h1 {
     font-size: 52px;
+    letter-spacing: -0.05em;
     color: $color-text-h1;
     font-weight: $font-weight-bold;
     line-height: 1em;

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /* GRACENOTE API STUFF */
 var apikey = "m5sb66gw46nh6cddagsumbtk";
 var baseUrl = "http://data.tmsapi.com/v1.1";
-var stationID = "81334";
+var stationID = "97965";
 // var stationID = "30763";
 var lineupID = "USA-OTA11216";
 var showtimesUrl = baseUrl + "/stations/" + stationID + "/airings";
@@ -82,6 +82,7 @@ function renderControls(date) {
 
   //attach click handlers
   const controls = document.querySelectorAll('.js_schedule-controls__week__day');
+  // console.log(controls);
   controls.forEach(function(day){
     day.addEventListener('click', function(){
       document.getElementById('section-schedule').scrollIntoView();
@@ -121,7 +122,7 @@ function renderControls(date) {
   function fixControls(){
     const scrollTop = document.body.scrollTop;
     const wrapOffsetTop = wrap.offsetTop;
-    console.log(document.querySelector('.js_site-header').offsetHeight);
+    // console.log(document.querySelector('.js_site-header').offsetHeight);
     // console.log(`scrollTop ${scrollTop}`);
     // console.log(`wrapOffsetTop ${wrapOffsetTop}`);
     if((document.querySelector('.section-live').offsetTop - 240) <= scrollTop) {
@@ -141,15 +142,16 @@ function renderControls(date) {
 
 
 
-function revealThumbnails(thumbs){
+function revealThumbnails(thumbs, parent){
+  console.log(parent.classList.contains('active'));
   let i = 0;
   function revealNextThumb() {
     setTimeout(function(){
       thumbs[i].src = thumbs[i].dataset.src;
       thumbs[i].classList.add('active');
       i++;
-      if (i < thumbs.length) {
-        revealNextThumb()
+      if (i < thumbs.length && parent.classList.contains('active')) {
+        revealNextThumb();
       }
     }, 600)
   }
@@ -251,7 +253,10 @@ function dataHandler(data){
 
   document.querySelector('.js_schedule').innerHTML = programming;
   document.querySelector('.js_schedule-loading-wrapper').classList.remove('hidden');
-  revealThumbnails(document.querySelectorAll('.js_schedule__day-1 .program__thumbnail img'));
+  revealThumbnails(
+    document.querySelectorAll('.js_schedule__day-1 .program__thumbnail img'),
+    document.querySelector('.js_schedule__day-1')
+  );
 
   //add the json object to the state
   updateScheduleState(scheduleState.dayActive, JSON.stringify(data));
@@ -287,7 +292,11 @@ function updateScheduleView(scheduleState){
   document.querySelector('.js_schedule__day.active').classList.remove('active');
   document.querySelector('.js_controls-day-' + dayActive).classList.add('active');
   document.querySelector('.js_schedule__day-' + dayActive).classList.add('active');
-  revealThumbnails(document.querySelectorAll('.js_schedule__day-' + dayActive + ' .program__thumbnail img'))
+  const scheduleActive = '.js_schedule__day-' + dayActive;
+  revealThumbnails(
+    document.querySelectorAll('.js_schedule__day-' + dayActive + ' .program__thumbnail img'),
+    document.querySelectorAll(scheduleActive)
+  );
 }
 
 function scheduleInit(){
@@ -330,6 +339,12 @@ function finderInit(){
   document.querySelector('.js_button-find').addEventListener('click', function(){
     this.classList.toggle('active');
     document.querySelector('.js_header-channel-finder').classList.toggle('active');
+    document.querySelector('.js_button-finder-close').classList.toggle('hidden');
+  });
+
+  document.querySelector('.js_button-finder-close').addEventListener('click', function(){
+    document.querySelector('.js_header-channel-finder').classList.remove('active');
+    document.querySelector('.js_button-finder-close').classList.add('hidden');
   });
 }
 
@@ -339,10 +354,16 @@ function toggleMobileMenu(){
 }
 
 function mobileMenuInit(){
-  document.querySelectorAll('.js_menu-toggle').forEach(function(button){
-    button.addEventListener('click', function(){
-      toggleMobileMenu();
-    });
+  // document.querySelectorAll('.js_menu-toggle').forEach(function(button){
+  //   button.addEventListener('click', function(){
+  //     toggleMobileMenu();
+  //   });
+  // });
+  document.querySelector('.js_menu-open').addEventListener('click', function(){
+    toggleMobileMenu();
+  });
+  document.querySelector('.js_menu-close').addEventListener('click', function(){
+    toggleMobileMenu();
   });
 }
 

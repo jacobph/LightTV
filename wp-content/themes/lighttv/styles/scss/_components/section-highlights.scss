@@ -44,6 +44,8 @@
 
     .highlights__block__image {
       height: 60%;
+      background-size: cover;
+      background-position: center center;
 
       @media (min-width: $bp-xl) {
         height: 70%;
@@ -127,7 +129,7 @@
         // }
 
         @media (min-width: $bp-m) {
-          height: 60%;
+          height: 70%;
         }
       } 
 
@@ -144,7 +146,7 @@
           }
         }
         @media (min-width: $bp-m) {
-          height: 40%;
+          height: 30%;
         }
       }     
     }
