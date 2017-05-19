@@ -143,14 +143,14 @@ function renderControls(date) {
 
 
 function revealThumbnails(thumbs, parent){
-  console.log(parent.classList.contains('active'));
   let i = 0;
   function revealNextThumb() {
     setTimeout(function(){
       thumbs[i].src = thumbs[i].dataset.src;
       thumbs[i].classList.add('active');
       i++;
-      if (i < thumbs.length && parent.classList.contains('active')) {
+      //let isInView = parent.classList.contains('active');
+      if (i < thumbs.length ) {
         revealNextThumb();
       }
     }, 600)
