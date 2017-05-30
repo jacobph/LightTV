@@ -10,13 +10,16 @@
 	<?php include 'finder.php'; ?>
 	<div class="site-footer">
 		<div class="container footer-container">
-			<ul class="footer-links">
+			<!-- <ul class="footer-links">
 				<li><a href="#">Terms&nbsp;&amp;&nbsp;Conditions</a></li>
 				<li><a href="#">Privacy</a></li>
 				<li><a href="">Advertising</a></li>
 				<li><a href="">Affiliate</a></li>
 				<li><a href="">Contact</a></li>
-			</ul>
+			</ul> -->
+			<div class="footer-links">
+				<?php wp_nav_menu( array( 'menu' => 'Footer Menu' ) ); // Display the user-defined menu in Appearance > Menus ?>
+			</div>
 			<p class="copyright">Copyright © 2017 MGM All rights reserved</p>
 			<?php include "social-icons.php" ?>
 		</div>

@@ -3,6 +3,7 @@
 	/* This template will be called by all other template files to begin 
 	/* rendering the page and display the header/nav
 	/*-----------------------------------------------------------------------------------*/
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

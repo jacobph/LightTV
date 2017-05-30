@@ -155,13 +155,15 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		</div>	<!-- .container -->
 	</section> <!-- .section-schedule -->
 
-	<section class="section-live" id="section-live"> 
+	<?php  include '_components/section-live.php' ?>
+
+<!-- 	<section class="section-live" id="section-live"> 
 		<div class="container">
 			<h1>live</h1>
 			<div class="intrinsic-container intrinsic-container-16x9">
 				<iframe class="" src="https://player.vimeo.com/video/212986034" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
-	</section> <!-- .section-live -->
+	</section> --> <!-- .section-live -->
 
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>
