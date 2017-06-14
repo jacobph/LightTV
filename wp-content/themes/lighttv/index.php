@@ -24,8 +24,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		$topPosts = get_posts(array(
 	    'pagination' => true,
 		  'posts_per_page' => 4,
-		  // 'cat' => 2,
-		  'cat' => 3,
+		  // 'cat' => 2, //category on op staging 
+		  'cat' => 3, //catagory on jacob's local machine
 		  'ignore_stickie_posts' => true,
     ));
     ?>
@@ -116,7 +116,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			<div class="schedule-loading-wrapper js_schedule-loading-wrapper hidden">
 				<div class="schedule-controls-wrapper" id="scheduleControlsWrapper">
 					<div class="schedule-controls">
-						<div class="schedule-controls__month"><span>mar</span></div>
+						<div class="schedule-controls__month js_schedule-controls__month"><span>mar</span></div>
 						<div class="schedule-controls__button schedule-controls__prev js_schedule-controls__prev"></div>
 						<div class="schedule-controls__week js_schedule-controls__week">
 							<!-- built with js -->
@@ -155,7 +155,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		</div>	<!-- .container -->
 	</section> <!-- .section-schedule -->
 
-	<?php  include '_components/section-live.php' ?>
+	<?php  // include '_components/section-live.php' ?>
 
 <!-- 	<section class="section-live" id="section-live"> 
 		<div class="container">

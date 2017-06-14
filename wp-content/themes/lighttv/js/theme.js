@@ -60,6 +60,11 @@ function isoString(date, offset) {
 };
 
 function renderControls(date) {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const month = monthNames[d.getMonth()].substring(0, 3);
+  document.querySelector('.js_schedule-controls__month span').innerText = month.toLowerCase();
   const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   let dayNum = date.getDay();
   let dayName = date.toString().split(' ')[0]; // gets first 3 letters of day name
@@ -346,6 +351,35 @@ function finderInit(){
     document.querySelector('.js_header-channel-finder').classList.remove('active');
     document.querySelector('.js_button-finder-close').classList.add('hidden');
   });
+}
+
+function displayResults() {
+  let results;
+  const aid = getParameter('aid');
+  const stnlt = getParameter('stnlt');
+  const nstnlt = getParameter('nstnlt');
+  const lid = getParameter('lid');
+  const zip = getParameter('zip');
+
+  let url = 'http://api.zap2it.com/tvlistings/webservices/channelFinder?rty=html';
+  if (aid != null && aid != '') {
+      url += '&aid=' + aid;
+  }
+  if (stnlt != null && stnlt != '') {
+      url += '&stnlt=' + stnlt;
+  }
+  if (nstnlt != null && nstnlt != '') {
+      url += '&nstnlt=' + nstnlt;
+  }       
+  if (lid != null && lid != '') {
+      url += '&lid=' + lid + '';
+  }
+  if (zip != null && zip != '') {
+      url += '&zip=' + zip + '';
+  }
+  results = '<div id="zcc-channelfinder-header"><h2>Light TV Channel Finder</h2></div>';
+  results += '<script type="text/javascript" src="' + url + '"></scr'+ 'ipt>';
+  document.write(results);
 }
 
 function toggleMobileMenu(){

@@ -74,6 +74,10 @@
 
   &.button-watch {
     margin-bottom: 25px;
+    /* these 2 rules need to be removed once the livestream is added */
+    opacity: 0 !important;
+    pointer-events: none!important;
+    /*  */
 
     @media (min-width: $bp-m) {
       margin-bottom: 0;
