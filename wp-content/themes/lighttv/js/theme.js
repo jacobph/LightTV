@@ -87,7 +87,6 @@ function renderControls(date) {
 
   //attach click handlers
   const controls = document.querySelectorAll('.js_schedule-controls__week__day');
-  // console.log(controls);
   controls.forEach(function(day){
     day.addEventListener('click', function(){
       document.getElementById('section-schedule').scrollIntoView();
@@ -127,13 +126,10 @@ function renderControls(date) {
   function fixControls(){
     const scrollTop = document.body.scrollTop;
     const wrapOffsetTop = wrap.offsetTop;
-    // console.log(document.querySelector('.js_site-header').offsetHeight);
-    // console.log(`scrollTop ${scrollTop}`);
-    // console.log(`wrapOffsetTop ${wrapOffsetTop}`);
-    if((document.querySelector('.section-live').offsetTop - 240) <= scrollTop) {
+     if((document.querySelector('.section-live').offsetTop - 240) <= scrollTop) {
       scheduleControls.classList.remove('fixed');
       scheduleControls.style = '';
-    } else if (scrollTop + document.querySelector('.js_site-header').offsetHeight >= wrapOffsetTop) {
+    } else  if (scrollTop + document.querySelector('.js_site-header').offsetHeight >= wrapOffsetTop) {
       scheduleControls.classList.add('fixed');
       scheduleControls.style = `width:${wrap.offsetWidth}px;`;
     } else {
@@ -351,15 +347,31 @@ function finderInit(){
     document.querySelector('.js_header-channel-finder').classList.remove('active');
     document.querySelector('.js_button-finder-close').classList.add('hidden');
   });
+
+  // event listeners for zip lookup func
+  document.querySelectorAll('.js_zip-lookup__submit').forEach(function(button){
+    button.addEventListener('click', function(){
+      const zip = button.parentNode.querySelector('.zip-lookup__input').value;
+      displayResults(zip);
+    });
+  });
+
+  document.querySelectorAll('.zip-lookup').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const zip = form.querySelector('.zip-lookup__input').value;
+      displayResults(zip);
+    })
+  });
 }
 
-function displayResults() {
-  let results;
-  const aid = getParameter('aid');
-  const stnlt = getParameter('stnlt');
-  const nstnlt = getParameter('nstnlt');
-  const lid = getParameter('lid');
-  const zip = getParameter('zip');
+function displayResults(zipcode) {
+  console.log('displayResults()');
+  const aid = 'zap2it';
+  const stnlt = '59987,71484,84543,55337,68615,97965';
+  const nstnlt  = true;
+  const lid = '';
+  const zip = zipcode;
 
   let url = 'http://api.zap2it.com/tvlistings/webservices/channelFinder?rty=html';
   if (aid != null && aid != '') {
@@ -377,9 +389,43 @@ function displayResults() {
   if (zip != null && zip != '') {
       url += '&zip=' + zip + '';
   }
-  results = '<div id="zcc-channelfinder-header"><h2>Light TV Channel Finder</h2></div>';
-  results += '<script type="text/javascript" src="' + url + '"></scr'+ 'ipt>';
-  document.write(results);
+  // let results = '<div id="zcc-channelfinder-header"><h2>Light TV Channel Finder</h2></div>';
+  // results += '<script type="text/javascript" src="' + url + '"></scr'+ 'ipt>';
+  // console.log(results);
+
+  let results = jQuery.ajax(url)
+    .done(function(data){
+      let resp = data.replace("document.write('", "");
+      resp = resp.replace("');", "");
+      document.querySelector('#resp').innerHTML = resp;
+      if (document.querySelector('#resp .zcc-new-lineup td:nth-child(1)') !== null) {
+        let lineup = document.querySelector('#resp .zcc-new-lineup td:nth-child(1)').innerText;
+        let channel = document.querySelector('#resp .zcc-new-lineup td:nth-child(2)').innerText;
+        const containers = document.querySelectorAll('.js_lookup-result');
+        containers.forEach(function(container){
+          container.querySelector('.js_lookup-result div:nth-child(1)').innerText = lineup;
+          container.querySelector('.js_lookup-result div:nth-child(2)').innerText = channel;
+        });
+      } else {
+        let lineup = 'No result found';
+        let channel = '';
+        const containers = document.querySelectorAll('.js_lookup-result');
+        containers.forEach(function(container){
+          container.querySelector('.js_lookup-result div:nth-child(1)').innerText = lineup;
+          container.querySelector('.js_lookup-result div:nth-child(2)').innerText = channel;
+        })
+      }
+    })
+    .fail(function(){
+      let lineup = 'No result found';
+      let channel = '';
+      const containers = document.querySelectorAll('.js_lookup-result');
+      containers.forEach(function(container){
+        container.querySelector('.js_lookup-result div:nth-child(1)').innerText = lineup;
+        container.querySelector('.js_lookup-result div:nth-child(2)').innerText = channel;
+      })
+    });
+
 }
 
 function toggleMobileMenu(){

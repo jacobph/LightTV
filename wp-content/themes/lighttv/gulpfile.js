@@ -25,7 +25,7 @@ gulp.task('scripts', function() {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename('theme.min.js'))
     .pipe(gulp.dest('js/min/'))
 });

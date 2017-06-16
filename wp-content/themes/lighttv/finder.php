@@ -10,11 +10,11 @@
         <input type="hidden" name="nstnlt" value="true" />
         <label for="zip" class="screen-reader-text">ZIP Code</label>
         <input type="text" name="zip" placeholder="ZIP Code" class="zip-lookup__input">
-        <div class="zip-lookup__submit">
+        <div class="js_zip-lookup__submit zip-lookup__submit">
           <img src="<?php echo site_url(); ?>/wp-content/themes/lighttv/img/White_CarrotArrow.svg" alt="Search">
         </div>
       </form>
-      <div class="lookup-result">
+      <div class="js_lookup-result lookup-result">
         <div>Watch LIGHTtv on:</div>
         <div>Broadcast Channel 42.0</div>
       </div>
