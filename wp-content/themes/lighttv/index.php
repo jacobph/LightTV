@@ -167,4 +167,4 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	</section> --> <!-- .section-live -->
 
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>
-<div id="resp"></div>
+<div id="resp" style="display:none!important"></div>
